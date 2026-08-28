@@ -1,0 +1,15 @@
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+dist/
+
+# personal data never enters this repo
+*.db
+*.sqlite*
+optimism.db
+learner-ledger.json
+state/
+.env
