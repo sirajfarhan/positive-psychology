@@ -5,6 +5,8 @@ const SCALE = 3 // raw 1-7 with neutral at 4, so oriented runs -3..+3
 
 /** As a share of the way to the pole. 100% is the far end of the rail. */
 const pctOf = (v) => Math.round((Math.min(Math.abs(v), SCALE) / SCALE) * 100)
+/** A reading with its sign, on the same scale every bar uses. */
+const signed = (v) => `${v > 0 ? '+' : v < 0 ? '\u2212' : ''}${pctOf(v)}%`
 
 /** One bar growing from the centre spine, left or right. */
 function Row({ row, overall = false }) {
@@ -140,11 +142,16 @@ export default function App() {
     <div className="page">
       <Eyebrow />
       <h1 className="title">How you explain the things that happen to you.</h1>
-      {data.trend !== null && data.trend !== undefined && (
+      {data.trend !== null && data.trend !== undefined
+        && data.previous !== null && data.previous !== undefined && (
         <p className="trend">
+          {/* two readings on the scale the bars use, never their difference:
+              a difference of two composites spans twice the scale, and the
+              old line divided it by the scale, so a real swing read 183% */}
+          <span>{signed(data.previous)}</span>
+          {' \u2192 '}
           <span style={{ color: data.trend >= 0 ? 'var(--good)' : 'var(--bad)' }}>
-            {data.trend > 0 ? '↑' : data.trend < 0 ? '↓' : '·'}{' '}
-            {Math.abs(Math.round((data.trend / 3) * 100))}%
+            {signed(data.overall)}
           </span>{' '}
           against the {data.window} before these
         </p>

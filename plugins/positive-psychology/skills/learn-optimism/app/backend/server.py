@@ -78,7 +78,8 @@ def reading():
     c.close()
     return {"overall": r["overall"], "n": r["n"], "since": r["since"],
             "finding": r["finding"], "readiness": r["readiness"],
-            "trend": r.get("trend"), "window": r.get("window"),
+            "trend": r.get("trend"), "previous": r.get("previous"),
+            "window": r.get("window"),
             "blocks": blocks, "scale": {"min": -3, "max": 3}}
 
 
