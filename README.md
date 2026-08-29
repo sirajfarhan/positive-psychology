@@ -36,7 +36,7 @@ Three parts, one shared file.
 
 | Part | Where | What it holds |
 |---|---|---|
-| **Database** | SQLite, on your machine, outside this repo | Every sentence you've given it, what you've practised, and any question still waiting on you |
+| **Database** | SQLite, in a folder of your own, outside the plugin | Every sentence you've given it, what you've practised, and any question still waiting on you |
 | **Backend** | FastAPI on `:8787` | Read-only. Hands over your current scores and how they've moved |
 | **Frontend** | React on `:5173` | The page above. Your result in a sentence, a bar for each of the three questions, and what you're practising |
 
@@ -120,9 +120,15 @@ need `python3` and `node`, and it installs its own dependencies the first
 time it runs. Then say `/learn-optimism` in any session and it opens with one
 question.
 
-## Upgrading
+## Your file
 
-Pull a newer version and your history comes with it. Your file updates itself
+It lives at `~/.local/share/positive-psychology/optimism.db`, which is nobody's
+private corner. Claude and Codex read that same file, so it doesn't matter
+which one you happen to be talking to, and installing or removing the plugin
+doesn't reach it. Set `XDG_DATA_HOME` and it follows. If you'd used this
+before it moved there, it brings your old file along the first time it runs.
+
+Pull a newer version and your history comes with it. The file updates itself
 the next time you run anything, keeps a dated copy of the old one, and says a
 single line about what it did. Nothing you've told it is lost, however old the
 version you're coming from.

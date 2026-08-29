@@ -458,7 +458,7 @@ working.
 they have been drilled on and have not finished. That is what the page shows.
 
 `--db PATH` overrides the default store at
-`~/.claude/state/optimism/optimism.db`. Results are `correct`, `partial` or
+the store (`optimism_db.py` resolves the path; nothing else needs to know it). Results are `correct`, `partial` or
 `incorrect`. Concepts are `perm-bad`, `perm-good`, `perv-bad`, `perv-good`,
 `pers-bad`, `pers-good`, `inversion`, `dispute`, `accept`, `compare`,
 `agency`, `question`, `weight`, `seed`.

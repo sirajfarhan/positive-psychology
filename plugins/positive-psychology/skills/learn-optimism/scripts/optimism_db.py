@@ -26,6 +26,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shutil
 import sqlite3
 import sys
 from datetime import datetime, timedelta, timezone
@@ -33,11 +34,48 @@ from pathlib import Path
 
 import migrations
 
-# OPTIMISM_DB overrides the store location. Tests set it so they never touch
-# the real corpus; the server reads the same variable, so both halves agree.
-DEFAULT_DB = Path(os.environ.get(
-    "OPTIMISM_DB",
-    str(Path.home() / ".claude" / "state" / "optimism" / "optimism.db"))).expanduser()
+# Where the corpus lives, in order of precedence:
+#
+#   1. OPTIMISM_DB, for tests and for anyone who wants it somewhere else.
+#   2. $XDG_DATA_HOME/positive-psychology/optimism.db
+#   3. ~/.local/share/positive-psychology/optimism.db
+#
+# The path is deliberately tool-neutral. Claude Code, Codex and anything else
+# that can run this script share one store, because the sentences are the
+# user's and not the client's. Installing, moving or removing a plugin never
+# touches them.
+LEGACY_DBS = [Path.home() / ".claude" / "state" / "optimism" / "optimism.db"]
+
+
+def _default_db() -> Path:
+    override = os.environ.get("OPTIMISM_DB")
+    if override:
+        return Path(override).expanduser()
+    base = os.environ.get("XDG_DATA_HOME") or (Path.home() / ".local" / "share")
+    return Path(base).expanduser() / "positive-psychology" / "optimism.db"
+
+
+DEFAULT_DB = _default_db()
+
+
+def adopt_legacy_store(path: Path) -> Path | None:
+    """Move a store left at an older location, once, rather than orphan it.
+
+    Someone who used this before the path was tool-neutral has real sentences
+    at the old address. Starting a fresh empty store beside them would lose
+    the history silently, which is the failure worth the extra code.
+    """
+    if path.exists() or os.environ.get("OPTIMISM_DB"):
+        return None
+    for old in LEGACY_DBS:
+        if old.exists() and old.stat().st_size > 0:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(old), str(path))
+            for extra in old.parent.glob(f"{old.stem}.*.bak"):
+                shutil.move(str(extra), str(path.parent / extra.name))
+            print(f"moved your store from {old} to {path}", file=sys.stderr)
+            return old
+    return None
 
 # id, name, what a performance looks like, source, kind
 #   kind 'dimension' -> scored 1-7, drives the chart
@@ -181,6 +219,7 @@ def iso(dt: datetime) -> str:
 
 
 def connect(path: Path) -> sqlite3.Connection:
+    adopt_legacy_store(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     con = sqlite3.connect(path)
     con.row_factory = sqlite3.Row
