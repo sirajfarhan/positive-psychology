@@ -77,10 +77,13 @@ def data_home() -> Path:
 def cache_home() -> Path:
     """The platform's directory for regenerable files.
 
-    The venv and node_modules go here rather than beside the store. They are
-    rebuildable, they are large, and on macOS this path has no spaces in it,
-    which a venv needs: a shebang breaks at the first space, so a pip installed
-    under "Application Support" would not run.
+    The venv and node_modules go here rather than beside the store, because
+    they are large and can always be rebuilt, while the store cannot.
+
+    On macOS it also drops "Application Support" from the venv path, and with
+    it one guaranteed space. That is a smaller win than it looks: a home
+    directory can contain a space too, so run.sh installs with `python -m pip`
+    rather than `bin/pip`, which is what actually makes the venv safe there.
     """
     xdg = os.environ.get("XDG_CACHE_HOME")
     if xdg:
@@ -94,11 +97,18 @@ def cache_home() -> Path:
     return Path.home() / ".cache"
 
 
+def platform_db() -> Path:
+    """Where the store goes when nobody has said otherwise."""
+    return data_home() / APP_DIR / DB_NAME
+
+
 def _default_db() -> Path:
     override = os.environ.get("OPTIMISM_DB")
     if override:
-        return Path(override).expanduser()
-    return data_home() / APP_DIR / DB_NAME
+        # resolve(): a relative OPTIMISM_DB would otherwise mean a different
+        # file depending on which directory the caller happened to be in
+        return Path(override).expanduser().resolve()
+    return platform_db()
 
 
 DEFAULT_DB = _default_db()
@@ -118,17 +128,37 @@ def adopt_legacy_store(path: Path) -> Path | None:
     at the old address. Starting a fresh empty store beside them would lose
     the history silently, which is the failure worth the extra code.
     """
-    if path.exists() or os.environ.get("OPTIMISM_DB"):
+    # Adopt only into the path this script would have picked on its own.
+    #
+    # Checking "was OPTIMISM_DB set" is not the same question, and getting it
+    # wrong is expensive: a caller who says --db /tmp/scratch.db is asking to
+    # look somewhere else, and moving their real store into a scratch file
+    # because they asked is the worst thing this script could do. Comparing
+    # against platform_db() covers --db and OPTIMISM_DB in one test, and still
+    # adopts correctly when an override happens to name the real location.
+    if path != platform_db() or path.exists():
         return None
-    for old in LEGACY_DBS:
-        if old.exists() and old.stat().st_size > 0:
-            path.parent.mkdir(parents=True, exist_ok=True)
-            shutil.move(str(old), str(path))
-            for extra in old.parent.glob(f"{old.stem}.*.bak"):
-                shutil.move(str(extra), str(path.parent / extra.name))
-            print(f"moved your store from {old} to {path}", file=sys.stderr)
-            return old
-    return None
+
+    found = [old for old in LEGACY_DBS
+             if old.exists() and old.stat().st_size > 0]
+    if not found:
+        return None
+
+    old, rest = found[0], found[1:]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    shutil.move(str(old), str(path))
+    for extra in old.parent.glob(f"{old.stem}.*.bak"):
+        shutil.move(str(extra), str(path.parent / extra.name))
+    print(f"moved your store from {old} to {path}", file=sys.stderr)
+
+    # Say so when a second one exists. Adoption never runs again once the
+    # destination is there, so anything left behind is invisible from here on,
+    # and silence would read as "there was only ever one".
+    for other in rest:
+        print(f"note: another store is still at {other}. Nothing was taken "
+              f"from it. To use that one instead, move it to {path} while "
+              f"{path.name} is not there.", file=sys.stderr)
+    return old
 
 # id, name, what a performance looks like, source, kind
 #   kind 'dimension' -> scored 1-7, drives the chart
@@ -323,10 +353,10 @@ def add_explanation(con, event, valence, quote, scores, note=None,
                     domain=None, kind="event") -> int:
     if kind not in ("event", "practice"):
         raise SystemExit("kind must be event or practice")
-    # growth is only scoreable on setbacks; refuse it loudly rather than
-    # storing a value that reading() would silently drop
     if domain is not None and domain not in DOMAINS:
         raise SystemExit(f"domain must be one of: {', '.join(DOMAINS)}")
+    # growth is only scoreable on setbacks; refuse it loudly rather than
+    # storing a value that reading() would silently drop
     if valence == "good" and scores.get("builds") is not None:
         raise SystemExit("builds is scored only on setbacks - there is nothing "
                          "to grow from in a win")
@@ -590,7 +620,7 @@ def ask(con, concept_id: str, prompt: str, explanation_id: int | None = None,
             f"A two-way pick here is answerable from the words alone and tests "
             f"reading, not their ear.\nAsk for their own sentence instead: what "
             f"made that happen, say it the way it was, say that part back.\n"
-            f"(--allow-pick only after a miss.)")
+            f"(--allow-pick overrides this. It does not check for a miss.)")
     t = iso(now())
     con.execute(
         """INSERT INTO pending (id, concept_id, prompt, explanation_id, asked_at)
@@ -631,7 +661,15 @@ def resume(con) -> dict:
     }
 
 
+def _require_concept(con, concept_id: str) -> None:
+    """One answer for a bad id, so a typo cannot read as 'nothing here'."""
+    if con.execute("SELECT 1 FROM concept WHERE id = ?",
+                   (concept_id,)).fetchone() is None:
+        raise SystemExit(f"unknown concept: {concept_id}")
+
+
 def asked(con, concept_id: str) -> dict:
+    _require_concept(con, concept_id)
     """What has already been put to the learner for this concept.
 
     Drills have to stay novel, so before composing one, check this: the prompts
@@ -651,6 +689,7 @@ def asked(con, concept_id: str) -> dict:
 
 
 def unused_explanations(con, concept_id: str, limit: int = 5) -> list[dict]:
+    _require_concept(con, concept_id)
     """Stored sentences this concept has not been drilled on yet.
 
     A *-good concept only ever drills on wins and a *-bad concept only on
@@ -839,9 +878,11 @@ def main() -> int:
             "deps": str(cache_home() / APP_DIR / "deps"),
             "exists": args.db.exists(),
             "platform": sys.platform,
-            "source": ("OPTIMISM_DB" if os.environ.get("OPTIMISM_DB")
+            "source": ("--db" if args.db != DEFAULT_DB
+                       else "OPTIMISM_DB" if os.environ.get("OPTIMISM_DB")
                        else "XDG_DATA_HOME" if os.environ.get("XDG_DATA_HOME")
                        else "platform default"),
+            "adoptable": args.db == platform_db() and not args.db.exists(),
         }, indent=2))
         return 0
 
