@@ -117,6 +117,8 @@ CREATE TABLE IF NOT EXISTS explanation (
     event           TEXT    NOT NULL,
     valence         TEXT    NOT NULL CHECK (valence IN ('good','bad')),
     quote           TEXT    NOT NULL,
+    kind            TEXT    NOT NULL DEFAULT 'event'
+                    CHECK (kind IN ('event','practice')),
     domain          TEXT,
     permanence      REAL,
     pervasiveness   REAL,
@@ -193,6 +195,8 @@ def init(con: sqlite3.Connection) -> None:
     have_e = {r[1] for r in con.execute("PRAGMA table_info(explanation)")}
     if "domain" not in have_e:
         con.execute("ALTER TABLE explanation ADD COLUMN domain TEXT")
+    if "kind" not in have_e:
+        con.execute("ALTER TABLE explanation ADD COLUMN kind TEXT NOT NULL DEFAULT 'event'")
     have_a = {r[1] for r in con.execute("PRAGMA table_info(attempt)")}
     for col, decl in (("prompt", "TEXT"), ("explanation_id", "INTEGER")):
         if col not in have_a:
@@ -231,7 +235,9 @@ def orient(raw: float | None, valence: str, dim: str = "permanence") -> float | 
 # --------------------------------------------------------------------------
 
 def add_explanation(con, event, valence, quote, scores, note=None,
-                    domain=None) -> int:
+                    domain=None, kind="event") -> int:
+    if kind not in ("event", "practice"):
+        raise SystemExit("kind must be event or practice")
     # growth is only scoreable on setbacks; refuse it loudly rather than
     # storing a value that reading() would silently drop
     if domain is not None and domain not in DOMAINS:
@@ -244,10 +250,10 @@ def add_explanation(con, event, valence, quote, scores, note=None,
             raise SystemExit(f"{dim}={raw} is outside the 1-7 scale")
     cur = con.execute(
         """INSERT INTO explanation
-           (captured_at, event, valence, quote, domain,
+           (captured_at, event, valence, quote, kind, domain,
             permanence, pervasiveness, personalization, builds, note)
-           VALUES (?,?,?,?,?,?,?,?,?,?)""",
-        (iso(now()), event, valence, quote, domain,
+           VALUES (?,?,?,?,?,?,?,?,?,?,?)""",
+        (iso(now()), event, valence, quote, kind, domain,
          scores.get("permanence"), scores.get("pervasiveness"),
          scores.get("personalization"), scores.get("builds"), note),
     )
@@ -258,7 +264,8 @@ def add_explanation(con, event, valence, quote, scores, note=None,
 def readiness(con) -> dict:
     """How close the store is to a profile worth reading."""
     counts = {"bad": 0, "good": 0}
-    for r in con.execute("SELECT valence, COUNT(*) c FROM explanation GROUP BY valence"):
+    for r in con.execute(
+            "SELECT valence, COUNT(*) c FROM explanation WHERE kind='event' GROUP BY valence"):
         counts[r["valence"]] = r["c"]
     need = NEED_PER_VALENCE
     return {
@@ -302,7 +309,7 @@ def profile(con) -> dict:
 
     # their own words, for writing pair counterparts that sound like them
     register = [dict(r) for r in con.execute(
-        "SELECT quote, valence, domain FROM explanation "
+        "SELECT quote, valence, domain, kind FROM explanation "
         "ORDER BY captured_at DESC, id DESC LIMIT 6")]
 
     return {
@@ -324,7 +331,7 @@ def window(con, valence: str, offset: int = 0) -> list:
     picked. offset=NEED_PER_VALENCE gives the preceding window, for the trend.
     """
     return con.execute(
-        """SELECT * FROM explanation WHERE valence = ?
+        """SELECT * FROM explanation WHERE valence = ? AND kind = 'event'
            ORDER BY captured_at DESC, id DESC LIMIT ? OFFSET ?""",
         (valence, NEED_PER_VALENCE, offset)).fetchall()
 
@@ -355,7 +362,7 @@ def composite(con, offset: int = 0) -> float | None:
 
 def reading(con) -> dict:
     """The whole display state, in one object."""
-    rows = con.execute("SELECT * FROM explanation").fetchall()
+    rows = con.execute("SELECT * FROM explanation WHERE kind='event'").fetchall()
 
     ready = readiness(con)
     out: dict = {"n": len(rows), "since": None, "bad": {}, "good": {},
@@ -465,10 +472,40 @@ def reschedule(row: sqlite3.Row, result: str) -> tuple[float, float]:
     return round(interval, 3), round(ease, 3)
 
 
-def ask(con, concept_id: str, prompt: str, explanation_id: int | None = None) -> dict:
+# A two-way pick is stranger-answerable by design, so a concept gets exactly
+# one: its first. After that the questions go open, and a pick returns only
+# after a miss. Prose could not hold this line, so the script does.
+PICK_MARKERS = (" or ", "which of those", "which of these", "which one",
+                "which version", "either")
+
+
+def looks_like_pick(prompt: str) -> bool:
+    return any(m in prompt.lower() for m in PICK_MARKERS)
+
+
+def required_form(con, concept_id: str) -> str:
+    """'pick' only for a concept's first question, or right after a miss."""
+    row = con.execute(
+        """SELECT result FROM attempt WHERE concept_id = ?
+           ORDER BY at DESC, id DESC LIMIT 1""", (concept_id,)).fetchone()
+    if row is None:
+        return "pick"
+    return "pick" if row["result"] == "incorrect" else "open"
+
+
+def ask(con, concept_id: str, prompt: str, explanation_id: int | None = None,
+        allow_pick: bool = False) -> dict:
     """Open a drill. Replaces any drill left open, since only one may run."""
     if con.execute("SELECT 1 FROM concept WHERE id = ?", (concept_id,)).fetchone() is None:
         raise SystemExit(f"unknown concept: {concept_id}")
+    form = required_form(con, concept_id)
+    if form == "open" and looks_like_pick(prompt) and not allow_pick:
+        raise SystemExit(
+            f"{concept_id} is past its first pick, so this question must be open.\n"
+            f"A two-way pick here is answerable from the words alone and tests "
+            f"reading, not their ear.\nAsk for their own sentence instead: what "
+            f"made that happen, say it the way it was, say that part back.\n"
+            f"(--allow-pick only after a miss.)")
     t = iso(now())
     con.execute(
         """INSERT INTO pending (id, concept_id, prompt, explanation_id, asked_at)
@@ -478,7 +515,7 @@ def ask(con, concept_id: str, prompt: str, explanation_id: int | None = None) ->
              explanation_id=excluded.explanation_id, asked_at=excluded.asked_at""",
         (concept_id, prompt, explanation_id, t))
     con.commit()
-    return {"open": concept_id, "asked_at": t}
+    return {"open": concept_id, "asked_at": t, "form": form}
 
 
 def pending(con) -> dict | None:
@@ -614,7 +651,10 @@ def due(con, limit: int = 3) -> list[dict]:
                 r["next_due"] is not None, r["next_due"] or "", r["id"])
 
     rows.sort(key=rank)
-    return rows[:limit]
+    out = rows[:limit]
+    for r in out:
+        r["form"] = required_form(con, r["id"])
+    return out
 
 
 def focus(con, limit: int = 4) -> list[dict]:
@@ -666,6 +706,9 @@ def main() -> int:
     a.add_argument("--quote", required=True,
                    help="the causal statement, VERBATIM -- their words, not tidied")
     a.add_argument("--domain", choices=list(DOMAINS))
+    a.add_argument("--kind", choices=["event", "practice"], default="event",
+                   help="practice = their re-explanation during a drill; "
+                        "drill material forever, never in the reading")
     a.add_argument("--permanence", type=float)
     a.add_argument("--pervasiveness", type=float)
     a.add_argument("--personalization", type=float)
@@ -686,6 +729,8 @@ def main() -> int:
     ask_p.add_argument("concept")
     ask_p.add_argument("--prompt", required=True)
     ask_p.add_argument("--explanation", type=int)
+    ask_p.add_argument("--allow-pick", action="store_true",
+                       help="only after a miss; picks are otherwise first-question-only")
 
     ak = sub.add_parser("asked")
     ak.add_argument("concept")
@@ -715,7 +760,7 @@ def main() -> int:
     elif args.cmd == "add":
         scores = {k: getattr(args, k) for k in DIMENSIONS}
         eid = add_explanation(con, args.event, args.valence, args.quote, scores,
-                              args.note, args.domain)
+                              args.note, args.domain, args.kind)
         print(json.dumps({"id": eid, "oriented": {
             k: orient(v, args.valence, k) for k, v in scores.items() if v is not None}}, indent=2))
     elif args.cmd == "resume":
@@ -723,7 +768,8 @@ def main() -> int:
     elif args.cmd == "pending":
         print(json.dumps(pending(con), indent=2))
     elif args.cmd == "ask":
-        print(json.dumps(ask(con, args.concept, args.prompt, args.explanation), indent=2))
+        print(json.dumps(ask(con, args.concept, args.prompt, args.explanation,
+                             args.allow_pick), indent=2))
     elif args.cmd == "asked":
         print(json.dumps(asked(con, args.concept), indent=2))
     elif args.cmd == "unused":

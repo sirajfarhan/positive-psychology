@@ -216,10 +216,23 @@ shape and register, never content.
    For `agency`, `question` and `weight`: stored quotes are the wrong shape
    of sentence, so drill them only on something said in the live
    conversation, and call `ask` without `--explanation`.
-7. Write the pair from their sentence. One dimension moves. Their register.
-   Deliver it as speech: anchor their sentence, give the other version as a
-   full clause, ask the one criterion question. No lettered options, no
-   "two versions of why:" header. Worksheets are not speech.
+7. Write the question at the rung's form, from their sentence.
+   The form climbs with the rung, and this is not optional:
+   a concept's FIRST question is the only two-way pick it gets. One clean
+   pair, one dimension moved, unmissable. After the first correct pick,
+   that concept's questions go open: "what made that happen, say it the
+   way it actually was", "which part of your sentence won't expire, say
+   it back", "tell me that again so the cause is something you did". A
+   pick may return only after a miss.
+   `ask` enforces this: it refuses a pick once a concept is past its
+   first, and `due` reports the required `form` per concept, so check
+   there before composing. `--allow-pick` exists for the after-a-miss
+   case and nothing else.
+   And every question past the first must pass the needs-you test: if a
+   stranger could answer it from the words alone, it tests reading, not
+   their ear. "Which takes in more of your life" next to an option that
+   says "whole life" answers itself. Rewrite until only they can answer.
+   Deliver as speech. No lettered options, no worksheet headers.
 8. `ask <concept> --prompt "..." --explanation N`. Persist before speaking.
 9. Say the drill. Under fifty words. Nothing else.
 
@@ -227,6 +240,13 @@ When the answer comes: `record` first, with `--prompt`, `--explanation` and
 `--evidence`. Then feedback at their compression level. Then one small next
 step, or the question that starts it. A turn that ends on a bare statement
 is a stall, and the learner should never have to say "okay" to restart you.
+
+Rich answers are material. When an answer re-explains their event in
+their own words, "it was there with what I was doing, how I was sitting,
+speaking, walking", store that sentence with `--kind practice`. Practice
+lines never touch the reading or the map. They become anchors for later
+drills, so the pool the questions draw from deepens every session instead
+of recycling the first twelve.
 
 Two kinds of answer get their own branch. If they ask what the right answer
 was, retrieve before you explain: put the same choice back once, re-anchored

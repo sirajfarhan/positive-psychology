@@ -125,9 +125,18 @@ CLEAN. only self moves
   b) I'm the reason that fell over.
 ```
 
-**Make the first pair unmissable, then narrow.** The opening contrast should be
-wide enough that a stranger gets it on instinct. Tighten it on later rounds once
-the ear is working. Starting subtle teaches nothing and reads as a trick.
+**Make the first pair unmissable, then retire the pair.** The opening contrast
+should be wide enough that a stranger gets it on instinct. That is the only
+stranger-answerable question a concept ever gets. After the first correct
+pick the concept's questions go open, and a pick returns only after a miss.
+A session that keeps serving two-way picks past the first is quizzing, not
+training, and the learner starts pattern-matching your phrasings instead of
+hearing their own.
+
+**The needs-you test.** Past the first pick, no question may be answerable
+from the words alone. If one option says "whole life" and the question asks
+which covers more of their life, the sentence graded itself. The answer has
+to need their memory of the event, not their reading of your sentence.
 
 **Ask something concrete, not something analytical.** The question must be
 answerable on gut feel, without the criterion being named. *Which one sounds
@@ -173,8 +182,10 @@ moment they give you any.
 
 ### Stage 2. detect
 
-Now their own words, and now the vocabulary, introduced as a name for the
-thing they just heard.
+Open questions only from here on. Now their own words, and now the
+vocabulary, introduced as a name for the thing they just heard. The answer
+they give is often a fresh re-explanation in their own voice: store it with
+`--kind practice`, because it is tomorrow's anchor material.
 
 ```
 Three weeks ago you said: "I'm just not a serious operator."
