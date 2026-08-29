@@ -1,9 +1,9 @@
 # positive-psychology
 
-Agent Skills for Claude Code and Codex, built on what positive psychology can
-actually measure. A skill here isn't only a prompt file. It ships its own
-database, backend and frontend, and Claude drives all three from the
-conversation.
+Skills for Claude Code and Codex, built on what positive psychology can
+actually measure. A skill here isn't only instructions: it keeps a file of
+your own on your machine, runs a small page beside the chat, and Claude
+drives all of it from the conversation.
 
 ---
 
@@ -34,11 +34,11 @@ teaching you to hear that difference before it ever gives you a term for it.
 
 Three parts share one file.
 
-| Part | Where | What it holds |
-|---|---|---|
-| **Database** | SQLite, in a folder of your own, outside the plugin | Every sentence you've given it, what you've practised, and any question still waiting on you |
-| **Backend** | FastAPI on `:8787` | Read-only. Hands over your current scores and how they've moved |
-| **Frontend** | React on `:5173` | The page above. Your result in a sentence, a bar for each of the three questions, and what you're practising |
+| Part | What it holds |
+|---|---|
+| **Your file** | Every sentence you've given it, what you've practised, and any question still waiting on you |
+| **A small local service** | Reads that file and hands the page your current scores and how they've moved |
+| **The page** | The picture above: your result in a sentence, a bar for each of the three questions, and what you're practising |
 
 You say `/learn-optimism`, and it opens your file and starts the page if it
 isn't already running. If a question was left unanswered last time, it comes
@@ -52,7 +52,7 @@ things. The page has no buttons because it has nothing to write with.
 ## How the teaching works
 
 **It listens before it teaches.** Six things that went wrong and six that
-went right, which is the same number of examples the original test uses.
+went right, which is the same count the questionnaire it's built on uses.
 Until it has those, it only listens, and the scores, the practice and the
 vocabulary all wait their turn.
 
@@ -81,15 +81,17 @@ questions come from. It never counts toward your scores, because a sentence
 you were talked into isn't evidence of how you talk on your own.
 
 **Your scores move when you do.** They only look at your latest six of each
-kind, compared against the six before those. Recent change shows up instead
-of getting buried under a lifetime average.
+kind, so recent change shows up instead of getting buried under a lifetime
+average. Once you've been at it long enough to have six more of each behind
+those, it also starts showing which way you've moved, and until then it
+shows where you stand and leaves it there.
 
 ## What the code enforces
 
 Written rules kept getting ignored out of habit, so the ones that matter now
 live in the code.
 
-It refuses a two-answer question anywhere, and says why when it does. It won't take a score outside the
+It refuses multiple-choice questions outright, and says why when it does. It won't take a score outside the
 scale, or record growth on something that went well, because there's nothing
 to grow from there. Only one question can be open at a time, and the code
 blocks a second one rather than trusting anyone to remember. A sentence you
@@ -104,34 +106,10 @@ The repo is a plugin marketplace, so Claude Code can install it directly:
 /plugin install positive-psychology@positive-psychology
 ```
 
-For Codex, point it at the same folder in `~/.codex/config.toml`:
-
-```toml
-[marketplaces.positive-psychology]
-source_type = "local"
-source = "/path/to/positive-psychology"
-
-[plugins."positive-psychology@positive-psychology"]
-enabled = true
-```
-
-One tree, three manifests, because the two tools each want their own and
-[Agent Plugins 1.0](https://agent-plugins.org) covers the rest. All of them
-find skills the same way, in folders sitting directly inside `skills/` with a
-`SKILL.md` in them. Both tools read the same file on disk, so whichever one
-you talk to, you're carrying on the same conversation.
-
-To take one skill on its own:
-
-```bash
-git clone git@github.com:sirajfarhan/positive-psychology.git
-cp -R positive-psychology/plugins/positive-psychology/skills/learn-optimism \
-      ~/.claude/skills/
-```
-
-Copy it as a real folder, since the skill scanner won't follow a link. You'll
-need `python3` and `node`, and it installs its own dependencies the first
-time it runs. Then say `/learn-optimism` in any session and it opens with one
+Codex can read the same folder as a local plugin, and both tools share the
+one file on disk, so whichever you talk to, you're carrying on the same
+conversation. You'll need `python3` and `node`; it sets the rest up itself
+the first time it runs. Then say `/learn-optimism` and it opens with one
 question.
 
 ## Your file
@@ -145,18 +123,12 @@ nobody's private corner.
 | Linux | `~/.local/share/positive-psychology/` |
 | Windows | `%LOCALAPPDATA%\positive-psychology\` |
 
-Set `XDG_DATA_HOME` and it follows that instead, on any of the three. Claude
+Claude
 and Codex read the same file, so it doesn't matter which one you're talking
-to, and installing or removing the plugin doesn't reach it. If you used this
-before it moved, it brings your old file along the first time it runs. To see
-where anything ended up, ask:
-
-```bash
-python3 scripts/optimism_db.py where
-```
-
-The venv and the frontend packages go to your cache folder rather than next to
-it, because those can always be rebuilt and your sentences can't.
+to, and installing or removing the plugin doesn't reach it. If an older
+version kept your file somewhere else, it brings it along the first time it
+runs, and if you ever wonder where anything ended up, ask it and it'll tell
+you.
 
 Pull a newer version and your history comes with it. The file updates itself
 the next time you run anything, keeps a dated copy of the old one, and says a
@@ -178,26 +150,5 @@ direction, the gap between how you tell the bad ones and how you tell the
 good ones, and the change against your own history. Don't trust the number
 itself, and don't compare it to anyone.
 
-## Layout
-
-```
-.claude-plugin/marketplace.json        the catalogue Claude Code reads
-.agents/plugins/marketplace.json       the same catalogue, for Codex
-plugins/positive-psychology/
-  .claude-plugin/plugin.json           Claude Code manifest
-  .codex-plugin/plugin.json            Codex manifest
-  plugin.json                          Agent Plugins 1.0, for everyone else
-  skills/
-    learn-optimism/
-      SKILL.md                         what it does each turn, and how it talks
-      references/                      the voice, the teaching, the scoring
-      scripts/optimism_db.py           your file, and the only thing that writes
-      scripts/migrations.py            keeps older files working
-      app/backend/                     FastAPI, read-only
-      app/frontend/                    React, the page
-      app/run.sh                       starts it, safe to run twice
-scripts/reload.sh                      pushes your edits into the installed plugin
-```
-
-Another skill drops in beside `learn-optimism/`. No manifest needs touching,
-and every tool finds it.
+More skills can drop in beside this one, and everything above stays true
+for each of them.

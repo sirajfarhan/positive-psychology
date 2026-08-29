@@ -146,7 +146,7 @@ export default function App() {
             {data.trend > 0 ? '↑' : data.trend < 0 ? '↓' : '·'}{' '}
             {Math.abs(Math.round((data.trend / 3) * 100))}%
           </span>{' '}
-          since the {data.window} before these
+          against the {data.window} before these
         </p>
       )}
 

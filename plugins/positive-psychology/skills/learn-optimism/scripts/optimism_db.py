@@ -200,17 +200,17 @@ CONCEPTS = [
      "spots the imagined alternative a sentence is measuring against, and can "
      "choose a different one on purpose",
      "sage", "principle"),
-    ("agency", "where the next move sits",
+    ("agency", "the move that's still yours",
      "names a move that is theirs to make, without forcing and without waiting",
      "sage", "principle"),
-    ("question", "the question being asked",
+    ("question", "which question you're asking yourself",
      "notices which question they are putting to themselves, and asks a better one",
      "sage", "principle"),
     ("weight", "how much it was made to matter",
      "notices the importance assigned to something, and whether the reaction "
      "matches the actual stake",
      "sage", "principle"),
-    ("seed", "what it was for",
+    ("seed", "what the setback built",
      "states what a setback produced or taught, without erasing the cost",
      "sage", "principle"),
 ]
@@ -506,8 +506,15 @@ def reading(con) -> dict:
     if values:
         out["overall"] = round(sum(values) / len(values), 2)
 
-    # trend: this window against the one before it, same size, same method
-    prev = composite(con, offset=NEED_PER_VALENCE)
+    # trend: this window against the one before it, same size, same method,
+    # and only when the one before it exists in full. A real page once said
+    # "up 20% since the 12 before these" while the previous window held a
+    # single sentence: the arithmetic ran on whatever was there, and the
+    # label lied about the sample.
+    prev_full = all(
+        len(window(con, v, offset=NEED_PER_VALENCE)) == NEED_PER_VALENCE
+        for v in ("bad", "good"))
+    prev = composite(con, offset=NEED_PER_VALENCE) if prev_full else None
     out["trend"] = (None if prev is None or out["overall"] is None
                     else round(out["overall"] - prev, 2))
     out["previous"] = prev
