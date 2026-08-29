@@ -8,22 +8,30 @@
   },
   "metadata": {
     "description": "Skills that measure and train what positive psychology can actually measure.",
-    "version": "0.1.0",
-    "pluginRoot": "./plugins"
+    "version": "0.1.0"
   },
   "plugins": [
     {
       "name": "positive-psychology",
-      "source": "positive-psychology",
+      "source": "./plugins/positive-psychology",
       "displayName": "Positive Psychology",
       "description": "Reads how you explain real events, scores it the way the research does, and trains the ear by drilling your own sentences.",
       "version": "0.1.0",
-      "author": { "name": "Siraj", "email": "hello@siraj.ai" },
+      "author": {
+        "name": "Siraj",
+        "email": "hello@siraj.ai"
+      },
       "homepage": "https://github.com/sirajfarhan/positive-psychology",
       "repository": "https://github.com/sirajfarhan/positive-psychology",
       "license": "MIT",
       "category": "productivity",
-      "keywords": ["optimism", "explanatory-style", "seligman", "learning", "cbt"]
+      "keywords": [
+        "optimism",
+        "explanatory-style",
+        "seligman",
+        "learning",
+        "cbt"
+      ]
     }
   ]
 }
