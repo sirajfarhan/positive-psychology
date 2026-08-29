@@ -67,10 +67,33 @@ chart. Eight **principles** are taught and tracked and never charted. The two
 structural ones from Seligman, and six from Sage defined in
 `references/principles.md`. Both kinds run the same ladder.
 
+## Where the scripts are
+
+Every command below runs from this skill's own folder, the one holding the file
+you are reading. Nothing here names a tool's directory, because the same tree
+is loaded by Claude Code, by Codex, and by anything else that reads a
+`SKILL.md`. Set this once, from the path you loaded this file from:
+
+```bash
+SKILL_DIR=<the folder containing this SKILL.md>
+S="$SKILL_DIR/scripts/optimism_db.py"
+```
+
+If that path is somehow not to hand, find it:
+
+```bash
+S="$(find ~/.claude ~/.codex ~/.local/share ~/.config -name optimism_db.py \
+     -path '*learn-optimism*' 2>/dev/null | head -1)"
+```
+
+The store is a separate question and needs none of this. `optimism_db.py`
+resolves it on its own, to a path outside every plugin folder, so all tools
+read and write the one file. Never pass `--db` unless you are testing.
+
 ## Start every invocation with `resume`
 
 ```bash
-python3 ~/.claude/skills/learn-optimism/scripts/optimism_db.py resume
+python3 $S resume
 ```
 
 One call gives you the whole position. Which phase they are in. Whether a drill
@@ -423,8 +446,6 @@ not go in.
 ## Commands
 
 ```bash
-S=~/.claude/skills/learn-optimism/scripts/optimism_db.py
-
 python3 $S init
 python3 $S reading
 python3 $S summary
@@ -468,7 +489,7 @@ the store (`optimism_db.py` resolves the path; nothing else needs to know it). R
 The display lives at `app/`. Bring it up with:
 
 ```bash
-~/.claude/skills/learn-optimism/app/run.sh
+"$SKILL_DIR/app/run.sh"
 ```
 
 It is idempotent. If both servers are already up it prints the URL and exits,

@@ -17,11 +17,14 @@ WEB_URL="http://localhost:${WEB_PORT}"
 LOG_DIR="${TMPDIR:-/tmp}/learn-optimism"
 mkdir -p "$LOG_DIR"
 
-# The venv and node_modules live beside the store, not inside the plugin.
-# A plugin update replaces the installed folder wholesale, and 122MB of
-# frontend dependencies should not be downloaded again every time it does.
-STATE="${XDG_DATA_HOME:-$HOME/.local/share}/positive-psychology"
-DEPS="$STATE/deps"
+# The venv and node_modules live outside the plugin. A plugin update replaces
+# the installed folder wholesale, and 122MB of frontend dependencies should not
+# be downloaded again every time it does.
+#
+# optimism_db.py owns where things go on each platform. Asking it, rather than
+# working it out again here, means there is one answer and not two that drift.
+DEPS="$(python3 "$APP/../scripts/optimism_db.py" where \
+        | python3 -c 'import json,sys; print(json.load(sys.stdin)["deps"])')"
 VENV="$DEPS/backend-venv"
 mkdir -p "$DEPS"
 
@@ -78,7 +81,9 @@ else
     echo "first run: creating backend venv"
     rm -rf "$VENV"
     python3 -m venv "$VENV"
-    "$VENV/bin/pip" install -q fastapi uvicorn
+    # -m pip, not bin/pip: a shebang line breaks at the first space, so the
+    # generated pip script would not run from a path containing one.
+    "$VENV/bin/python" -m pip install -q fastapi uvicorn
   fi
   nohup "$VENV/bin/python" "$APP/backend/server.py" \
     > "$LOG_DIR/api.log" 2>&1 &

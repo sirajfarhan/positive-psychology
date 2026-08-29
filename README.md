@@ -134,11 +134,27 @@ question.
 
 ## Your file
 
-It lives at `~/.local/share/positive-psychology/optimism.db`, which is nobody's
-private corner. Claude and Codex read that same file, so it doesn't matter
-which one you happen to be talking to, and installing or removing the plugin
-doesn't reach it. Set `XDG_DATA_HOME` and it follows. If you'd used this
-before it moved there, it brings your old file along the first time it runs.
+It goes where your operating system already keeps things like it, which is
+nobody's private corner.
+
+| | |
+|---|---|
+| macOS | `~/Library/Application Support/positive-psychology/` |
+| Linux | `~/.local/share/positive-psychology/` |
+| Windows | `%LOCALAPPDATA%\positive-psychology\` |
+
+Set `XDG_DATA_HOME` and it follows that instead, on any of the three. Claude
+and Codex read the same file, so it doesn't matter which one you're talking
+to, and installing or removing the plugin doesn't reach it. If you used this
+before it moved, it brings your old file along the first time it runs. To see
+where anything ended up, ask:
+
+```bash
+python3 scripts/optimism_db.py where
+```
+
+The venv and the frontend packages go to your cache folder rather than next to
+it, because those can always be rebuilt and your sentences can't.
 
 Pull a newer version and your history comes with it. The file updates itself
 the next time you run anything, keeps a dated copy of the old one, and says a

@@ -34,28 +34,81 @@ from pathlib import Path
 
 import migrations
 
-# Where the corpus lives, in order of precedence:
+# Where the corpus lives.
 #
-#   1. OPTIMISM_DB, for tests and for anyone who wants it somewhere else.
-#   2. $XDG_DATA_HOME/positive-psychology/optimism.db
-#   3. ~/.local/share/positive-psychology/optimism.db
+# The store is the user's, not the client's, so it sits in the place that
+# platform's own conventions put user data -- outside every plugin folder, so
+# Claude Code, Codex and anything else that can run this script read and write
+# one file. Installing, updating or removing a plugin never touches it.
 #
-# The path is deliberately tool-neutral. Claude Code, Codex and anything else
-# that can run this script share one store, because the sentences are the
-# user's and not the client's. Installing, moving or removing a plugin never
-# touches them.
-LEGACY_DBS = [Path.home() / ".claude" / "state" / "optimism" / "optimism.db"]
+# The resolution order below is the one platformdirs, appdirs and Rust's dirs
+# crate all implement, which is why it is worth matching exactly rather than
+# inventing something:
+#
+#   1. OPTIMISM_DB          an explicit answer beats every guess. Tests use it.
+#   2. XDG_DATA_HOME        honoured on every platform when it is set, because
+#                           someone who sets it has said where they want data.
+#   3. the platform default
+#        macOS    ~/Library/Application Support/positive-psychology
+#        Windows  %LOCALAPPDATA%\positive-psychology
+#        else     ~/.local/share/positive-psychology   (XDG default)
+#
+# Anything that has ever been a default stays in LEGACY_DBS so an existing
+# store is carried forward instead of being abandoned next to a new empty one.
+
+APP_DIR = "positive-psychology"
+DB_NAME = "optimism.db"
+
+
+def data_home() -> Path:
+    """The platform's directory for user data, per the XDG/Apple/MS conventions."""
+    xdg = os.environ.get("XDG_DATA_HOME")
+    if xdg:
+        return Path(xdg).expanduser()
+    if sys.platform == "darwin":
+        return Path.home() / "Library" / "Application Support"
+    if os.name == "nt":
+        local = os.environ.get("LOCALAPPDATA") or os.environ.get("APPDATA")
+        if local:
+            return Path(local)
+    return Path.home() / ".local" / "share"
+
+
+def cache_home() -> Path:
+    """The platform's directory for regenerable files.
+
+    The venv and node_modules go here rather than beside the store. They are
+    rebuildable, they are large, and on macOS this path has no spaces in it,
+    which a venv needs: a shebang breaks at the first space, so a pip installed
+    under "Application Support" would not run.
+    """
+    xdg = os.environ.get("XDG_CACHE_HOME")
+    if xdg:
+        return Path(xdg).expanduser()
+    if sys.platform == "darwin":
+        return Path.home() / "Library" / "Caches"
+    if os.name == "nt":
+        local = os.environ.get("LOCALAPPDATA") or os.environ.get("APPDATA")
+        if local:
+            return Path(local) / "Cache"
+    return Path.home() / ".cache"
 
 
 def _default_db() -> Path:
     override = os.environ.get("OPTIMISM_DB")
     if override:
         return Path(override).expanduser()
-    base = os.environ.get("XDG_DATA_HOME") or (Path.home() / ".local" / "share")
-    return Path(base).expanduser() / "positive-psychology" / "optimism.db"
+    return data_home() / APP_DIR / DB_NAME
 
 
 DEFAULT_DB = _default_db()
+
+# Every location this store has ever defaulted to, oldest last. Order is only
+# a tiebreak; in practice at most one of these exists.
+LEGACY_DBS = [
+    Path.home() / ".local" / "share" / APP_DIR / DB_NAME,
+    Path.home() / ".claude" / "state" / "optimism" / DB_NAME,
+]
 
 
 def adopt_legacy_store(path: Path) -> Path | None:
@@ -721,6 +774,7 @@ def main() -> int:
     sub = p.add_subparsers(dest="cmd", required=True)
 
     sub.add_parser("init")
+    sub.add_parser("where")
     sub.add_parser("reading")
     sub.add_parser("readiness")
     sub.add_parser("migrate")
@@ -773,6 +827,24 @@ def main() -> int:
     un.add_argument("--limit", type=int, default=5)
 
     args = p.parse_args()
+
+    if args.cmd == "where":
+        # Answered before opening anything, so asking where the store is never
+        # brings one into existence. run.sh reads this instead of reimplementing
+        # the resolution, so there is one answer and not two that can drift.
+        print(json.dumps({
+            "db": str(args.db),
+            "dir": str(args.db.parent),
+            "data_home": str(data_home()),
+            "deps": str(cache_home() / APP_DIR / "deps"),
+            "exists": args.db.exists(),
+            "platform": sys.platform,
+            "source": ("OPTIMISM_DB" if os.environ.get("OPTIMISM_DB")
+                       else "XDG_DATA_HOME" if os.environ.get("XDG_DATA_HOME")
+                       else "platform default"),
+        }, indent=2))
+        return 0
+
     con = connect(args.db)
     report = init(con, args.db)
     if report["applied"] and args.cmd != "migrate":
