@@ -17,6 +17,11 @@ rm -rf "$APP/frontend/node_modules" "$APP/backend/.venv"
 bash "$APP/run.sh" stop >/dev/null 2>&1 || true
 
 claude plugin marketplace update positive-psychology
-# `install` is a no-op once installed, so a refresh has to go through update.
-claude plugin update positive-psychology
+
+# Uninstall first. `install` no-ops on an installed plugin, and `update`
+# compares version numbers, so neither picks up an edit made at the same
+# version -- which is every edit during development.
+claude plugin uninstall positive-psychology >/dev/null 2>&1 || true
+rm -rf "$HOME/.claude/plugins/cache/positive-psychology"
+claude plugin install positive-psychology@positive-psychology
 echo "reloaded from $ROOT"
