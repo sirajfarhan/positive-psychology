@@ -467,9 +467,23 @@ sentence that would survive being deleted.
 check due  ->  retrieve  ->  feedback  ->  repair  ->  one new step  ->  record
 ```
 
-When nothing is due, take one concept at `detect` or `produce` at random and
-ask for a quick recall. This keeps the earlier discriminations alive without
-turning the session into an exam.
+When nothing is due, take one concept at `detect` or `produce` at random,
+ask for a quick recall, and head for the close. This keeps the earlier
+discriminations alive without turning the session into an exam.
+
+## The session shape
+
+A short session runs two or three of those turns, takes at most one new
+event unless they keep bringing more, and then closes. The
+schedule spreads concepts across days because practice spread over days
+holds and practice crammed into one sitting doesn't, so a short session is
+the system working, and a session that keeps asking has stopped teaching
+and started collecting.
+
+The gathering asks share the drill craft. Aim them with a loose end from
+their own talk or a dark corner of the file, keep them open, neutral and
+lean, and give the reason once. A capture question composed from nothing
+reads as a form, whatever the voice does.
 
 ## Disputation
 
