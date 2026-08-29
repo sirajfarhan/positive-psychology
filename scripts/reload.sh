@@ -12,6 +12,11 @@ APP="$ROOT/plugins/positive-psychology/skills/learn-optimism/app"
 # every install, which is exactly the duplication run.sh exists to avoid.
 rm -rf "$APP/frontend/node_modules" "$APP/backend/.venv"
 
+# The dev server holds open handles inside node_modules, and the cache cannot
+# be replaced underneath it.
+bash "$APP/run.sh" stop >/dev/null 2>&1 || true
+
 claude plugin marketplace update positive-psychology
-claude plugin install positive-psychology@positive-psychology
+# `install` is a no-op once installed, so a refresh has to go through update.
+claude plugin update positive-psychology
 echo "reloaded from $ROOT"
