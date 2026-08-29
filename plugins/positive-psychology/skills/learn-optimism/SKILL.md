@@ -64,10 +64,13 @@ These shapes own the layout. Every learner-facing turn is one of eight,
 three that ask and five that tell.
 
 **side by side** — two of their sentences on their own quoted lines,
-numbered so a reply can point at them, and one open movie-question
-underneath about what each one does. The numbers are for reference, never
-for the answer: every question here is open, and asking for a 1-or-2 died
-with the pick.
+numbered so a reply can point at them, and one open question underneath
+with a single slot: aimed at one sentence while the other stands as the
+quiet contrast, or one movie run past both into one answer. Never "each";
+a live drill asked what each sentence does and the learner answered "do
+with what?", because "each" is two questions wearing one mark. The numbers
+are for reference, never for the answer: every question here is open, and
+asking for a 1-or-2 died with the pick.
 
 **what changed** — their sentence on a quoted line, one open ask under it.
 
@@ -89,7 +92,13 @@ what it just did.
 **heavier than this** — the boundary. Stop, stay with them, point at real
 help.
 
-Four rules run across all eight.
+Five rules run across all eight.
+
+The learner acts; the skill evaluates. An ask is a thing to do: retell it,
+name what a sentence is still asking for, run the movie and say what
+changes. It is never a verdict to deliver on their own sentence. "Does
+your sentence still make that case?" hands them the grading, and what
+comes back is a hedged "I think so" that grades nothing.
 
 A sentence under study sits alone on a quoted line, verbatim, and two being
 compared get numbers. A fragment being mirrored stays inline, inside your
@@ -453,9 +462,9 @@ new  ->  discriminate  ->  detect  ->  produce  ->  live
 ```
 
 `discriminate` uses no dimension names at all: two of their sentences side
-by side, and an open question about what each one does. The vocabulary
-enters at `detect`, and only to name something the learner has already
-pointed at.
+by side, and one open question with a single slot. The vocabulary enters
+at `detect`, and only to name something the learner has already pointed
+at.
 
 Each state is reached only by performing at it. Reading, being told, and
 agreeing that it makes sense all leave a concept at `new`. Mastery is

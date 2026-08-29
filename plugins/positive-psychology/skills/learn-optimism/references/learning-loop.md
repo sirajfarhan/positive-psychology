@@ -54,7 +54,10 @@ real question failed without it.
    learner should know the shape of a fitting answer: a first move, a
    place, a moment, their own sentence said again. "What's left of each of
    those?" failed here twice, two movies at once and a remainder to
-   compute.
+   compute, and a live session then asked "what does each sentence do with
+   that?" and got "do with what?" back. One slot per ask. When two
+   sentences share the page, aim at one with the other as backdrop, or run
+   one movie past both into a single answer, and never say "each".
 
 Then two gates, and a question ships only past both.
 
@@ -90,7 +93,7 @@ having it explained, or agreeing that it makes sense all leave it at `new`.
 | State | What the learner has done |
 |---|---|
 | `new` | Not yet met |
-| `discriminate` | Told two of their explanations apart by what each one does, with no vocabulary in play |
+| `discriminate` | Told two of their explanations apart by what one does that the other doesn't, with no vocabulary in play |
 | `detect` | Named which dimension is doing the work in something they actually said |
 | `produce` | Re-explained one of their own real events, moving one dimension deliberately |
 | `live` | Caught doing it unprompted, in ordinary conversation about something else |
@@ -151,9 +154,10 @@ healthier to believe.
 
 ### Stage 1. discriminate
 
-Two of their own sentences, side by side, and one open question about what
-each one does. The dimension names, the theory and the scale all stay out
-of the room for now.
+Two of their own sentences, side by side, and one open question with a
+single slot, aimed at one of them or run past both into one answer. The
+dimension names, the theory and the scale all stay out of the room for
+now.
 
 **The corpus supplies the contrast.** Twelve stored sentences nearly always
 hold a real pair: the same cause explaining both valences, one week told
@@ -301,7 +305,11 @@ will not, and it is still performance: their instinct running the movie and
 reporting back.
 The line sits exactly there. What a sentence feels like is the ear at work
 and always fair to ask. What their week felt like is an emotion, and no
-question here ever reaches for one.
+question here ever reaches for one. And performance means an act, never a
+verdict: retell it, name what the sentence still wants, say what changes
+when the movie runs. "Does your sentence still argue?" hands the learner
+the grading, which is this skill's own job, and a hedged "I think so" is
+what comes back.
 
 **Only ask when the answer changes what you do next.** If the reply would not
 change the next example, the next explanation, or the level you pitch at, do

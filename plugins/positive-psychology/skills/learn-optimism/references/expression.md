@@ -46,8 +46,8 @@ Quote them back before asking. One question per turn, always Gross's kind:
 what did you see, what do you reckon made it go, what got you there.
 
 Make the difference visible before any name for it exists. Two of their
-own sentences side by side, and one movie run forward to see what each one
-does. That is Feynman's toy case, done on their words.
+own sentences side by side, and one movie run forward with one thing to
+answer at the end of it. That is Feynman's toy case, done on their words.
 
 Progress is theirs against theirs. "A month ago you told this kind of story
 the heavy way." Nothing about other people, nothing about ideals, and after

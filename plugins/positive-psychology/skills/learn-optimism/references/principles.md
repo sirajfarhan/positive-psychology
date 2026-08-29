@@ -187,10 +187,15 @@ Identically to the dimensions: the ladder in `learning-loop.md`, with no
 technical name before `detect`.
 
 The tells are for **you**, not the learner. At `discriminate`, two of
-their sentences sit side by side and one movie runs forward. For `accept`:
-say the outcome stands and nothing reverses it, then ask what the sentence
-does with that. For `compare`: ask what the three-a-month is being measured
-against. Never ask "can you spot the hidden comparison?"
+their sentences sit side by side and one question aims at one of them,
+with the other standing as the quiet contrast. For `accept`, name the
+settled thing in plain words, then ask what the arguing sentence still
+wants: "The deal's dead either way. What's that first sentence still
+asking them for?" For `compare`, ask what the number is being measured
+against: "Three a month, and your sentence says 'only'. Only next to
+what?" Never ask "can you spot the hidden comparison?". And never ask what
+each sentence does: a live drill asked exactly that, with a "that" nothing
+in the turn resolved, and the learner's whole answer was "do with what?"
 
 The name of the principle arrives only after they have pointed at the thing.
 
