@@ -43,7 +43,7 @@ def _add_column(con: sqlite3.Connection, table: str, col: str, decl: str) -> Non
 
 
 # --------------------------------------------------------------------------
-# The migrations. Append only. Never edit one that has shipped.
+# The migrations, append-only: never edit one that has shipped.
 # --------------------------------------------------------------------------
 
 def _m1_baseline(con: sqlite3.Connection) -> None:

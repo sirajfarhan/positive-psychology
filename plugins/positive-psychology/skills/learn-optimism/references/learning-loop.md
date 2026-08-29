@@ -22,6 +22,66 @@ hear the difference  ->  spot it in your own words  ->  say the other version  -
 The vocabulary enters at step two, and only to name something the learner can
 already point at.
 
+## How a question gets made
+
+Every drill question walks one pipeline, and each step is there because a
+real question failed without it.
+
+1. **Read the whole file first.** `corpus` returns every stored sentence
+   and the words that keep coming back. The interesting material usually
+   sits between events, not inside one: the same cause explaining a win
+   and a setback in the same week, wins in one domain and setbacks in
+   another, a word that returns whenever things go wrong. A drill built on
+   one event at a time never sees any of it.
+
+2. **Name the lens, in your working notes.** One of the three dimensions
+   or six principles, written down before the words are composed. A
+   question that cannot name its lens is decoration, and nothing here gets
+   invented outside the sources.
+
+3. **Build one movie from their furniture.** The ask runs a consequence
+   forward from their own event, in their own vocabulary: the money lands,
+   the party ends, Tuesday arrives. Explanatory style matters because of
+   what an explanation does next, so the question tests the doing.
+   "Which is bigger" measures; "what changes first" happens.
+
+4. **Say it open, neutral, lean.** Sawatsky's three, chanted by every
+   interviewer he trained. Open: it starts at what, how or where. Neutral:
+   no value words, which is why "bigger" and "better" both had to die.
+   Lean: the question stays shorter than the answer it hopes for.
+
+5. **Leave the answer slot visible.** Before the question ends, the
+   learner should know the shape of a fitting answer: a first move, a
+   place, a moment, their own sentence said again. "What's left of each of
+   those?" failed here twice, two movies at once and a remainder to
+   compute.
+
+Then two gates, and a question ships only past both.
+
+**The needs-you gate.** If a stranger could answer it from the words
+alone, it tests reading. The answer has to need their memory of the event.
+
+**The fetch gate.** Sage's own image: the brain runs after whatever is
+thrown, like a dog after a stick. So check what the question makes the
+brain do. Replaying a memory or running one short movie lands on instinct,
+which is the whole method. Comparing, computing or taking inventory is
+homework, and homework is the wrong muscle.
+
+One question's history shows the pipeline being learned the hard way. A
+real session asked "which of those takes in more of your life?", and the
+learner asked what it meant: fused, self-grading, a property. The first
+repair, "which of those is about more than this stay?", kept the property
+and failed the fetch gate. The second, "which of those feels bigger?",
+went felt but kept the comparison, and "bigger" is a value word with no
+stake in it. The one that landed ran the movie: "Say the money lands next
+week. What's the first thing that changes?"
+
+The answer that comes back is a sentence in their voice, and it is three
+things at once: the evidence for grading, tomorrow's drill material when
+stored with `--kind practice`, and more of their own voice for the next
+question to stand on. That triple yield is why every question is open. A
+pick would have returned one bit.
+
 ## The ladder
 
 Five states. Each is reached only by performing at it. Reading about a concept,
@@ -30,7 +90,7 @@ having it explained, or agreeing that it makes sense all leave it at `new`.
 | State | What the learner has done |
 |---|---|
 | `new` | Not yet met |
-| `discriminate` | Picked the more optimistic of two explanations, with no vocabulary in play |
+| `discriminate` | Told two of their explanations apart by what each one does, with no vocabulary in play |
 | `detect` | Named which dimension is doing the work in something they actually said |
 | `produce` | Re-explained one of their own real events, moving one dimension deliberately |
 | `live` | Caught doing it unprompted, in ordinary conversation about something else |
@@ -58,8 +118,8 @@ Tell me about something that went wrong recently, and say why you
 think it happened.
 ```
 
-That is the whole opening. No preamble, no explanation of what this is, no
-mention of what happens next.
+That is the whole opening; a preamble, an explanation of what this is, or a
+tour of what happens next would only delay the one real thing it asks for.
 
 Their answer gives you three things at once. An event to build pairs from. A
 verbatim causal claim to score and store. And, read from which words are doing
@@ -91,13 +151,24 @@ healthier to believe.
 
 ### Stage 1. discriminate
 
-Two versions of the same explanation. The learner picks. No dimension names, no
-theory, no scale.
+Two of their own sentences, side by side, and one open question about what
+each one does. The dimension names, the theory and the scale all stay out
+of the room for now.
 
-**Build the pair from their event, not from an invented one.** The two options
-are constructed. Their real sentence is one of them, and you write the other
-by moving a single dimension. This is the only rung where you author language
-for them, and it stays anchored to something that actually happened to them.
+**The corpus supplies the contrast.** Twelve stored sentences nearly always
+hold a real pair: the same cause explaining both valences, one week told
+wide in one sentence and narrow in another, a win credited to luck sitting
+next to a win owned. Quote both verbatim on their own lines and run the one
+movie underneath. Nothing shown was written by you, so nothing can sound
+like a voice they don't have.
+
+**The constructed counterpart is the fallback, and it is rare.** Only when
+the file genuinely holds no contrast for the lens may you write the second
+sentence yourself, and then three things hold. It moves exactly one
+dimension, the rule below. It is built from their vocabulary, their words
+for their event, because a counterpart in your register lets them answer on
+whose voice it sounds like. And the ask stays open even then; `ask` refuses
+pick phrasing, and `--allow-pick` exists for this fallback alone.
 
 **The one-variable rule.** The two options must differ on exactly ONE dimension.
 Same speaker, same scope, same ownership. Only the thing being probed moves. A
@@ -125,60 +196,47 @@ CLEAN. only self moves
   b) I'm the reason that fell over.
 ```
 
-**Make the first pair unmissable, then retire the pair.** The opening contrast
-should be wide enough that a stranger gets it on instinct. That is the only
-stranger-answerable question a concept ever gets. After the first correct
-pick the concept's questions go open, and a pick returns only after a miss.
-A session that keeps serving two-way picks past the first is quizzing, not
-training, and the learner starts pattern-matching your phrasings instead of
-hearing their own.
+**The movie carries the criterion, one per dimension.** Time: run the
+calendar forward and watch what expires. Reach: move the scene, a Tuesday,
+a different client, the walk home, and watch where the cause shows up.
+Self: rerun the event and watch where their own hands were. The lens picks
+which movie; the pipeline above governs how it is asked; both gates hold.
 
-**The needs-you test.** Past the first pick, no question may be answerable
-from the words alone. If one option says "whole life" and the question asks
-which covers more of their life, the sentence graded itself. The answer has
-to need their memory of the event, not their reading of your sentence.
-
-**Ask something concrete, not something analytical.** The question must be
-answerable on gut feel, without the criterion being named. *Which one sounds
-more like it is over* asks the learner to apply a standard they have not been
-given yet, and "over" is doing unexplained work.
-
-```text
-time    Which one could stop being true by next month?
-scope   Which one is about more of your life?
-self    Which of those is about something you did?
-```
-
-**Deliver the pair as speech, never as a worksheet.** No lettered options, no
-"two versions of why:" header. Anchor their sentence, give the other version
-as a full clause, ask the one criterion question. The a) and b) in the
-construction examples above are shorthand for you; the learner never sees a
-lettered list.
+**Put the sentences on the page, not in a paragraph.** A real session wove
+a sentence, its rewrite and the question into one block of prose, and the
+learner had to ask what was being asked. Sentences under study sit on their
+own quoted lines, numbered so a reply can point at them, with the ask last
+and alone. That is layout, not a worksheet: headers ("two versions of
+why:"), lettered a-b-c lists and fill-in blanks stay banned, and everything
+around the quoted lines is still speech. The a) and b) in the construction
+examples above are shorthand for you alone.
 
 **Format.** Same labelled shape the loop uses, so grading stays honest:
 
 ```text
-learn: time in a setback
+learn: time in a setback              (lens: permanence, bad)
 why:   whether a cause has an end date changes what you do next.
-try:   You said you never finish these. There's another way to say
-       that: you didn't finish that one. Which of those could stop
-       being true by next month?
-grade: the one-off version is correct. It names something already
-       finished. If they pick "never", point at the word: ask what
-       would have to happen for it to stop being true, and let them
-       find that nothing would.
+try:   Two sprints, two stories from you:
+
+       > **1.** "I never finish these."
+       > **2.** "I didn't finish that one."
+
+       Say next month has a finished sprint in it. What happens
+       to "never"?
+grade: hearing the end date is the point. An answer that lets one
+       finished sprint break "never" heard the trait for what it is,
+       a claim with no end in it. An answer that defends "never" is
+       the miss: ask what would have to happen for it to stop being
+       true, and let them find that nothing would. Their answer is a
+       sentence either way; store a re-explanation with
+       --kind practice and record what it showed.
 ```
 
 `learn`, `why` and `grade` are working notes. Only `try` is spoken.
 
-Authoring one side of the pair is permitted here and nowhere else. The event is
-always theirs; what you write is the counterpart, so the contrast is clean in a
-way their own sentence alone would not be. Vary which position is correct, and
-record the prompt so the next one differs.
-
-Only if they have brought nothing at all, and will not, may the event itself
-be invented. Say that you are making one up, and swap to their material the
-moment they give you any.
+Only if they have brought nothing at all, and will not, may the event
+itself be invented. Say that you are making one up, and swap to their
+material the moment they give you any.
 
 ### Stage 2. detect
 
@@ -188,10 +246,19 @@ they give is often a fresh re-explanation in their own voice: store it with
 `--kind practice`, because it is tomorrow's anchor material.
 
 ```
-Three weeks ago you said: "I'm just not a serious operator."
-Two things are happening in that sentence. One says it will not change.
-What does the other one say?
+Three weeks ago you said:
+
+> "I'm just not a serious operator."
+
+"I'm just not" says it'll never change. "Operator" is doing a second
+job in there. What is it?
 ```
+
+Point at the word carrying the thing you are probing, and ask what it does.
+A cold reader given the older version of this ask, "one says it will not
+change, what does the other one say?", could tell two things were present
+and still had to guess what kind of answer was wanted. Naming the word
+removes the guess and leaves the judgment.
 
 Correct if they identify spread. That "operator" covers their whole working
 life rather than the one deal. This is where `pervasiveness` gets its name,
@@ -202,9 +269,16 @@ after they have pointed at it.
 Same real event, same facts, one dimension moved. Output, not recognition.
 
 ```
-Same sentence, same facts, nothing softened. Say it again so the cause
-is something that finished.
+Your sentence, same facts, nothing softened:
+
+> "I'm just not a serious operator."
+
+Say it again so it's about the Meridian deal and nothing wider.
 ```
+
+The ask names its target from their own event. "Say it again so the reason
+ends when that week did" leaves a stranger asking which week; "so it's about
+the Meridian deal" carries the referent with it.
 
 Partial credit if they move it but also erase the cost. `builds something`
 requires the price to stay in the sentence.
@@ -221,17 +295,23 @@ This is the only stage that means the ear is theirs.
 
 **Probe by performance, never by self-report.** Never ask *does that make
 sense*, *how optimistic do you feel*, or *are you ready for the next one*.
-Ask for a small act inside the exact discrimination. The answer to *which of
-these two is more contained* tells you what a hundred self-ratings will not.
+Ask for a small act inside the exact discrimination. The answer to *what
+changes first when the money lands* tells you what a hundred self-ratings
+will not, and it is still performance: their instinct running the movie and
+reporting back.
+The line sits exactly there. What a sentence feels like is the ear at work
+and always fair to ask. What their week felt like is an emotion, and no
+question here ever reaches for one.
 
 **Only ask when the answer changes what you do next.** If the reply would not
 change the next example, the next explanation, or the level you pitch at, do
 not ask it.
 
-**Their material, not yours.** Constructed pairs belong at stage 1 only. From
-stage 2 on, the sentences are ones they actually said, pulled from the
-`explanation` table. A drill run on invented sentences tests vocabulary; a
-drill run on their own sentences tests the ear.
+**Their material, not yours.** The constructed counterpart is stage 1's
+rare fallback; everywhere else, every sentence shown is one they actually
+said, pulled from the `explanation` table. A drill run on invented
+sentences tests vocabulary; a drill run on their own sentences tests the
+ear.
 
 **One concept per turn.** Retrieve, give feedback, repair, then one new
 step. The step is a link in the chain, not an option on it. A turn that
@@ -348,8 +428,12 @@ and next you will spot it in your own sentences" beats "perm-bad: discriminate
 lands; the same drill on a tidied version does not, because the tidying already
 did the work.
 
-**One question, one thing.** A question that needs two discriminations to answer
-teaches neither.
+**One question, one job.** A question that needs two discriminations to answer
+teaches neither. The commonest fusion asks about the sentences and about the
+person in one breath: "what does this one do that the other doesn't"
+studies the sentences, "which one is true of you" asks for a self-rating,
+and nobody rates themselves here. The stored sentences already answer who they are; the questions only
+train the ear.
 
 **No compound jargon, ever.** If a sentence needs a glossary, it is the wrong
 sentence. This holds even once the learner is fluent - fluency earns shorter,
@@ -421,6 +505,17 @@ https://www.sciencedirect.com/science/article/pii/S0346251X98000025
 
 Can-do progression and learner-visible goals:
 https://www.actfl.org/educator-resources/ncssfl-actfl-can-do-statements
+
+Open, neutral, lean questions (Sawatsky's interviewing method):
+https://www.poynter.org/reporting-editing/2008/learning-from-john-sawatsky-interviewing-methods/
+
+Context reinstatement and open recall outperform direct questioning (the
+Cognitive Interview, meta-analysis):
+https://pubmed.ncbi.nlm.nih.gov/20707592/
+
+Asking about a specific moment elicits fluent narrative where a general
+question gets hedged fragments (Labov's sociolinguistic interviews):
+https://www.ling.upenn.edu/~wlabov/
 
 Explanatory style scored from natural language rather than questionnaires:
 https://ppc.sas.upenn.edu/research/cave-technique

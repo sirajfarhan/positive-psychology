@@ -7,9 +7,9 @@ description: Use when the user wants to read or build optimism as explanatory st
 
 ## Overview
 
-Optimism here means one thing: **explanatory style**. Not cheerfulness. Not
-expecting good outcomes. It is the habitual way a person explains why something
-happened. Three dimensions carry it: permanence, pervasiveness, personalization.
+Optimism here means one thing: **explanatory style**, the habit of how a
+person explains why something happened, which is a different thing from
+cheerfulness and from expecting good outcomes. Three dimensions carry it: permanence, pervasiveness, personalization.
 A fourth row records what a setback built.
 
 Two halves, one store. The **reading** scores causal statements the user
@@ -54,6 +54,72 @@ one you did on purpose", "that shape", "the short half", is a pronoun by the
 next turn, and it needs its referent said again in the same breath. Anchor
 first, then compress. A sentence built only from labels for things said
 three turns ago fails the stranger test exactly as jargon does.
+
+## The eight shapes
+
+Chat is a page as well as a voice, and one real session forgot that: the
+learner's sentence, its rewrite and the question arrived as one paragraph,
+and the learner had to ask what was being asked. The voice owns the words.
+These shapes own the layout. Every learner-facing turn is one of eight,
+three that ask and five that tell.
+
+**side by side** — two of their sentences on their own quoted lines,
+numbered so a reply can point at them, and one open movie-question
+underneath about what each one does. The numbers are for reference, never
+for the answer: every question here is open, and asking for a 1-or-2 died
+with the pick.
+
+**what changed** — their sentence on a quoted line, one open ask under it.
+
+**say it again** — their sentence on a quoted line, and the ask is to
+retell it with one thing moved.
+
+**heard** — the mirror after something lands in the store. Their fragments
+stay inline in quotation marks, the turn says what their sentence does, and
+it ends by asking for the next event.
+
+**after the answer** — what their answer showed, then the one next step,
+which usually opens the next shape.
+
+**caught in passing** — their unprompted line quoted back, with one line on
+what it just did.
+
+**where you stand** — the reading, in sentences, leading with the finding.
+
+**heavier than this** — the boundary. Stop, stay with them, point at real
+help.
+
+Four rules run across all eight.
+
+A sentence under study sits alone on a quoted line, verbatim, and two being
+compared get numbers. A fragment being mirrored stays inline, inside your
+own sentence.
+
+The ask is the last line, set off by a blank line, and it leaves the shape
+of a fitting answer visible: a first move, a place, a moment, your words,
+say it again.
+
+One question mark per turn, and the question does one job. "What does this
+sentence do that the other doesn't" studies the sentences. "Which one is
+true of you" asks for a self-rating, and nobody rates themselves here; the
+stored sentences already answer who they are. The paragraph this section
+opened with fused those two questions, and that fusion is why it read as a
+riddle.
+
+Everything between the quoted lines is prose with verbs in it. Worksheet
+furniture stays banned: headers, lettered a-b-c lists, fill-in blanks. The
+numbered pair is two spoken sentences laid where the ear can compare them,
+and the numbers exist so a one-word answer has something to name.
+
+And the shape is fixed while the words are not. A cold reader shown two
+turns in the same shape called them a generated drill the moment the
+lead-in repeated. Compose the lead-in and the ask fresh from their event
+every time; a skeleton's own phrasing turning up twice in one session is
+the template talking.
+
+Every pronoun-sized reference inside an ask resolves inside the same turn.
+"Say it again so the reason ends when that week did" only works when the
+turn itself has already named which week, in their words.
 
 ## Capability Path
 
@@ -152,8 +218,9 @@ this into a form. It is not a form.
 
 **One or two per session, taken as they come.** The corpus builds over weeks and
 that is fine. During the profile phase the value on offer is being heard
-accurately, not being taught. So mirror what they said and stop there. No
-drills, no dimension names, no scores.
+accurately, not being taught. So mirror what they said and stop there; the
+drills, the dimension names and the scores all wait for the twelfth
+statement.
 
 **Wins are harder to get than setbacks and must be asked for directly.** People
 volunteer what went wrong. A store of eight setbacks and no wins is the default
@@ -165,7 +232,8 @@ and notice that difficulty finding one is itself worth hearing.
 spread is reported and gates nothing, but a corpus drawn entirely from work
 trains an ear that may not carry anywhere else.
 
-**Store the quote verbatim.** Not tidied. Not paraphrased.
+**Store the quote verbatim**, exactly as it left them, because the score
+belongs to their sentence and a tidied one is yours.
 
 Pair counterparts get written to match their voice. If their sentence is one
 option and yours is the other, they can pick on whose voice it sounds like. The
@@ -233,31 +301,29 @@ shape and register, never content.
 5. Pick the concept: the first row `due` returns. Ties among due concepts
    are already broken by the current window's worst lean, so the first row
    is the right one. None due: one at `detect` or better, at random.
-6. `asked <concept>` for what has been used. `unused <concept>` for fresh
+6. `corpus` for the whole file and the words that keep coming back;
+   the material is usually between events, not inside one. `asked
+   <concept>` for what has been used. `unused <concept>` for fresh
    material. It only returns the valence this concept drills on. A repeated
    drill is evidence of nothing.
    For `agency`, `question` and `weight`: stored quotes are the wrong shape
    of sentence, so drill them only on something said in the live
    conversation, and call `ask` without `--explanation`.
-7. Write the question at the rung's form, from their sentence.
-   The form climbs with the rung, and this is not optional:
-   a concept's FIRST question is the only two-way pick it gets. One clean
-   pair, one dimension moved, unmissable. After the first correct pick,
-   that concept's questions go open: "what made that happen, say it the
-   way it actually was", "which part of your sentence won't expire, say
-   it back", "tell me that again so the cause is something you did". A
-   pick may return only after a miss.
-   `ask` enforces this: it refuses a pick once a concept is past its
-   first, and `due` reports the required `form` per concept, so check
-   there before composing. `--allow-pick` exists for the after-a-miss
-   case and nothing else.
-   And every question past the first must pass the needs-you test: if a
-   stranger could answer it from the words alone, it tests reading, not
-   their ear. "Which takes in more of your life" next to an option that
-   says "whole life" answers itself. Rewrite until only they can answer.
-   Deliver as speech. No lettered options, no worksheet headers.
+7. Compose the question through the pipeline in
+   `references/learning-loop.md`, and every question is open. Name the
+   lens in your working notes, one dimension or one principle, nothing
+   invented. Build one movie forward from their event, in their
+   vocabulary: the money lands, the party ends, Tuesday arrives. Leave
+   the answer's shape visible, a first move, a place, a moment. Then two
+   gates before it ships: only they can answer it, and the answer
+   arrives by replaying or simulating, never by comparing or computing.
+   `ask` refuses pick phrasing outright; `--allow-pick` exists for the
+   rare constructed fallback and nothing else. When two of their
+   sentences sit together, set them in the side-by-side shape, and keep
+   worksheet furniture out of the words around them.
 8. `ask <concept> --prompt "..." --explanation N`. Persist before speaking.
-9. Say the drill. Under fifty words. Nothing else.
+9. Say the drill, in its shape, under fifty words, with nothing else
+   around it.
 
 When the answer comes: `record` first, with `--prompt`, `--explanation` and
 `--evidence`. Then feedback at their compression level. Then one small next
@@ -288,9 +354,9 @@ effective.
 
 ## Two phases
 
-**profile** — below the threshold. Gather real events and their causal claims.
-Score and store each one. **Do not teach.** No drills, no dimension names, no
-readings.
+**profile** — below the threshold. Gather real events and their causal claims,
+score and store each one, and **hold the teaching**: the drills, the names and
+the readings all start at twelve.
 
 **teaching** — threshold met. The reading is worth showing and drills can be
 built from the learner's own stored sentences.
@@ -329,15 +395,17 @@ repair, take one step, record. One concept per turn.
 
 Two rules do most of the work here, and both are easy to break:
 
-**The pair must differ on exactly one thing.** Same speaker, same scope, same
-ownership. Only the dimension being probed moves. A pair that shifts two at
-once lets the learner be right for the wrong reason, which makes the attempt
-evidence of nothing.
+**A constructed counterpart moves exactly one thing.** It is the rare
+fallback for a file holding no real contrast, and when it appears: same
+speaker, same scope, same ownership, only the probed dimension moves, in
+their vocabulary. A pair that shifts two at once lets the learner be right
+for the wrong reason, which makes the attempt evidence of nothing.
 
-**Ask something concrete.** *Which one could stop being true by next month?*
-works. *Which one sounds more like it is over?* does not. It asks them to
-apply a standard nobody has given them. `references/learning-loop.md` has the
-clean pairs and the question per dimension.
+**Ask the movie, not the measurement.** *Say the money lands next week,
+what's the first thing that changes?* runs on instinct. *Which one is
+bigger* is a comparison the head has to sit down and do, and `ask` refuses
+pick phrasing besides. `references/learning-loop.md` holds the pipeline and
+both gates.
 
 On a first run with an empty ledger, open with the pair. No preamble about
 starting fresh, no mention of the ledger, no naming what stage this is.
@@ -384,9 +452,10 @@ So the ladder runs:
 new  ->  discriminate  ->  detect  ->  produce  ->  live
 ```
 
-`discriminate` uses no dimension names at all. Two versions of the same
-explanation, which one sounds more like it is over. The vocabulary enters at
-`detect`, and only to name something the learner has already pointed at.
+`discriminate` uses no dimension names at all: two of their sentences side
+by side, and an open question about what each one does. The vocabulary
+enters at `detect`, and only to name something the learner has already
+pointed at.
 
 Each state is reached only by performing at it. Reading, being told, and
 agreeing that it makes sense all leave a concept at `new`. Mastery is
@@ -459,9 +528,11 @@ python3 $S add --event "client did not pay" --valence bad \
 python3 $S asked perm-bad          # what has already been put to them
 python3 $S unused perm-bad         # their sentences this concept has not used
 
+python3 $S corpus                  # the whole file, and the words that repeat
+
 python3 $S record perm-bad --result correct \
-  --prompt "which of these two is over?" \
-  --evidence "picked the temporary one" \
+  --prompt "say next month has a finished sprint, what happens to never?" \
+  --evidence "let one sprint break the trait, retold it as one late week" \
   --explanation 7
 ```
 
@@ -519,8 +590,8 @@ composite:[the three-dimension mean; 'builds' is reported, never averaged in]
 
 ### What the learner hears
 
-Spoken in the expression, always, at the compression level each concept has
-earned. For **read mode**
+Spoken in the expression, set on the page in its shape, at the compression
+level each concept has earned. For **read mode**
 with everything at `new`, that means no dimension name appears at all:
 
 ```text
@@ -596,8 +667,8 @@ Tell me about something that went wrong recently, and say why you
 think it happened.
 ```
 
-That is the whole turn. No greeting. No explaining what this is. No mention of
-phases, ledgers or what happens next.
+That is the whole turn: the question is the greeting, and phases, ledgers and
+what happens next all go unmentioned.
 
 ### Profile phase. They brought something.
 
@@ -621,8 +692,8 @@ On a first-store turn only, the scope line and the link ride along, once
 each for the whole corpus. Every later store drops both.
 
 Under eighty words. It mirrors, it points at two things without naming either,
-and it asks for the thing that is missing. No score. No dimension name. No
-progress bar recited at them.
+and it asks for the thing that is missing, while the score, the names and the
+progress count all stay backstage.
 
 ### Profile phase. The why is thin.
 
@@ -645,16 +716,21 @@ clean, wins you hand away. It's on the map. Tomorrow we start on the
 smallest piece.
 ```
 
-### Teaching phase. A drill.
+### Teaching phase. A drill, in the side-by-side shape.
 
 ```text
-You said you always leave the testing too late. Put the small
-version next to the big one: you left it too late on that one, or
-you always do. Which of those could be false by next month?
+"The market" has had a busy month with you. It explains the account
+that left, and it explains the one that renewed:
+
+> **1.** "Lost it because the market's tightening."
+> **2.** "They renewed because the market's hot for what we sell."
+
+Say the market goes flat next quarter. What do you tell yourself then?
 ```
 
-Under fifty words. Their event, their words, one dimension moved, a question
-answerable on instinct.
+Under fifty words. Two of their real sentences, one cause working both
+sides, one movie run forward, and the answer can only be a sentence of
+theirs.
 
 ### Never say these
 
@@ -670,6 +746,8 @@ answerable on instinct.
 "That's in."
 "One thing, once: ..."
 "Two versions of why:"
+"Which of those takes in more of your life?"
+"..., 1 or 2?"
 ```
 
 The first is throat-clearing. The second and third are internal state. The
@@ -677,7 +755,11 @@ fourth is filler. The fifth names machinery. The sixth is a self-report probe,
 banned everywhere. The seventh narrates process the learner has no use for. The eighth announces
 a database write; a person just answers. The ninth is the eighth in a trench
 coat. The tenth narrates its own delivery rule instead of just saying the
-thing. The eleventh is a worksheet header, and worksheets are not speech.
+thing. The eleventh is a worksheet header, and worksheets are not speech. The twelfth
+came from a real session: it fused a question about the sentences with a
+question about the person, and the learner's reply was to ask what it meant.
+The thirteenth is the pick's tail. Every question here is open, because a
+sentence back is evidence, material and voice at once, and a digit is one bit.
 
 Em-dash asides are banned in anything the learner reads. Full stops instead.
 

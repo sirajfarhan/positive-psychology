@@ -1,7 +1,7 @@
 # The Dimensions and How to Score Them
 
-Four rows. Three are the validated instrument. One is not, and is marked
-everywhere it appears.
+Four rows: three carry the validated instrument, and the fourth is a
+different measure, marked as one everywhere it appears.
 
 ## What gets scored
 
@@ -74,7 +74,7 @@ verbatim causal sentence always decides.
 
 For a **setback**, low is optimistic. For a **win**, high is optimistic.
 
-### Personalization. a cause, or a defect?
+### Personalization: a cause, or a defect?
 
 This is the one that gets misread, so read the anchors carefully.
 

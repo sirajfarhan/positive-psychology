@@ -32,7 +32,7 @@ teaching you to hear that difference before it ever gives you a term for it.
 
 ![The Optimism Map](docs/optimism-map.png)
 
-Three parts, one shared file.
+Three parts share one file.
 
 | Part | Where | What it holds |
 |---|---|---|
@@ -53,12 +53,15 @@ things. The page has no buttons because it has nothing to write with.
 
 **It listens before it teaches.** Six things that went wrong and six that
 went right, which is the same number of examples the original test uses.
-Until it has those, it only collects. No scores, no practice, no terms.
+Until it has those, it only listens, and the scores, the practice and the
+vocabulary all wait their turn.
 
-**Practice is built from your own sentences.** Yours is one version of the
-event. It writes a second one that changes a single thing, and asks you
-something you can answer on gut feel. It never repeats itself, because it
-keeps every question it has asked and every sentence it has used.
+**Practice is built from your own sentences.** It reads everything you've
+told it and finds the pairs you already wrote, the same cause explaining a
+win and a setback, one week told two ways. Then it runs one question
+forward from your own details, the kind you answer on gut feel, and it
+never repeats itself, because it keeps every question it has asked and
+every sentence it has used.
 
 **Terms come last.** First you notice the two sentences feel different. Then
 you say what the difference is in your own words. Then you retell your own
@@ -66,11 +69,11 @@ event the other way. The last step is catching yourself doing it in normal
 conversation, with nobody asking. Reading about any of this moves nothing,
 and getting one wrong sets you back a step.
 
-**Questions get harder as you go.** You get one question with two answers to
-choose from, and it's always the first one on a given idea. After that they
-open up, because a two-answer question can be solved from the wording alone,
-and then it's testing your reading instead of your ear. Get one wrong and the
-easy kind comes back.
+**Every question is open.** A multiple-choice answer is one bit, and a bit
+teaches nothing twice. Your answers come back as sentences, and a sentence
+is three things at once: the evidence for how you heard it, tomorrow's
+practice material, and more of your own voice for the next question to
+stand on.
 
 **Your answers become tomorrow's material.** When you retell an event during
 practice, that new sentence gets kept as practice. It joins the pool the
@@ -86,8 +89,7 @@ of getting buried under a lifetime average.
 Written rules kept getting ignored out of habit, so the ones that matter now
 live in the code.
 
-It won't give you a two-answer question once you're past the first one on an
-idea, and it tells you why when it refuses. It won't take a score outside the
+It refuses a two-answer question anywhere, and says why when it does. It won't take a score outside the
 scale, or record growth on something that went well, because there's nothing
 to grow from there. Only one question can be open at a time, and the code
 blocks a second one rather than trusting anyone to remember. A sentence you

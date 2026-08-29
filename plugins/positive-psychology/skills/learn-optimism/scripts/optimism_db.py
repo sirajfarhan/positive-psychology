@@ -590,8 +590,8 @@ def reschedule(row: sqlite3.Row, result: str) -> tuple[float, float]:
 # A two-way pick is stranger-answerable by design, so a concept gets exactly
 # one: its first. After that the questions go open, and a pick returns only
 # after a miss. Prose could not hold this line, so the script does.
-PICK_MARKERS = (" or ", "which of those", "which of these", "which one",
-                "which version", "either")
+PICK_MARKERS = ("1 or 2", "2 or 1", "a or b", "which of those",
+                "which of these", "which one", "which version", "either")
 
 
 def looks_like_pick(prompt: str) -> bool:
@@ -599,13 +599,15 @@ def looks_like_pick(prompt: str) -> bool:
 
 
 def required_form(con, concept_id: str) -> str:
-    """'pick' only for a concept's first question, or right after a miss."""
-    row = con.execute(
-        """SELECT result FROM attempt WHERE concept_id = ?
-           ORDER BY at DESC, id DESC LIMIT 1""", (concept_id,)).fetchone()
-    if row is None:
-        return "pick"
-    return "pick" if row["result"] == "incorrect" else "open"
+    """Every question is open, always.
+
+    Two-way picks used to be required for a concept's first question. They
+    were retired: a pick yields one bit and teaches the learner to
+    pattern-match the phrasing, while an open answer yields a sentence,
+    which is at once the evidence for grading, tomorrow's drill material,
+    and the only thing the instrument can actually score.
+    """
+    return "open"
 
 
 def ask(con, concept_id: str, prompt: str, explanation_id: int | None = None,
@@ -614,13 +616,16 @@ def ask(con, concept_id: str, prompt: str, explanation_id: int | None = None,
     if con.execute("SELECT 1 FROM concept WHERE id = ?", (concept_id,)).fetchone() is None:
         raise SystemExit(f"unknown concept: {concept_id}")
     form = required_form(con, concept_id)
-    if form == "open" and looks_like_pick(prompt) and not allow_pick:
+    if looks_like_pick(prompt) and not allow_pick:
         raise SystemExit(
-            f"{concept_id} is past its first pick, so this question must be open.\n"
-            f"A two-way pick here is answerable from the words alone and tests "
-            f"reading, not their ear.\nAsk for their own sentence instead: what "
-            f"made that happen, say it the way it was, say that part back.\n"
-            f"(--allow-pick overrides this. It does not check for a miss.)")
+            f"this reads as a two-way pick, and every question here is open.\n"
+            f"A pick yields one bit and gets pattern-matched; an open answer "
+            f"yields a sentence,\nwhich is the evidence, the material and the "
+            f"scoreable thing all at once.\nRun one movie from their event and "
+            f"leave the answer slot visible: what changes\nfirst, where does it "
+            f"show up, what got you there.\n"
+            f"(--allow-pick overrides this, for the rare constructed fallback "
+            f"only.)")
     t = iso(now())
     con.execute(
         """INSERT INTO pending (id, concept_id, prompt, explanation_id, asked_at)
@@ -631,6 +636,38 @@ def ask(con, concept_id: str, prompt: str, explanation_id: int | None = None,
         (concept_id, prompt, explanation_id, t))
     con.commit()
     return {"open": concept_id, "asked_at": t, "form": form}
+
+
+STOPWORDS = frozenset("""a an and are as at be because but by for from had has
+have he her his i im it its me my not of on or our she so that the their them
+they this to was we were what when which who will with you your just like feel
+feels felt more much very really""".split())
+
+
+def corpus(con) -> dict:
+    """Every stored sentence, plus the words that keep coming back.
+
+    Whole-file questioning starts here: a drill built on one event at a time
+    never notices that "without money" is explaining a win and a setback in
+    the same week. The repeats list is deliberately dumb, content words
+    appearing in two or more event quotes, because the reading of what a
+    repeat means belongs to the caller, not to string matching.
+    """
+    rows = [dict(r) for r in con.execute(
+        """SELECT id, captured_at, event, valence, domain, kind, quote
+           FROM explanation ORDER BY captured_at, id""")]
+    seen: dict[str, set] = {}
+    for r in rows:
+        if r["kind"] != "event":
+            continue
+        words = {w.strip(".,;:!?\"'()").lower()
+                 for w in r["quote"].split()}
+        for w in words:
+            if len(w) > 3 and w not in STOPWORDS:
+                seen.setdefault(w, set()).add(r["id"])
+    repeats = {w: sorted(ids) for w, ids in sorted(
+        seen.items(), key=lambda kv: (-len(kv[1]), kv[0])) if len(ids) > 1}
+    return {"n": len(rows), "explanations": rows, "repeats": repeats}
 
 
 def pending(con) -> dict | None:
@@ -849,6 +886,7 @@ def main() -> int:
     r.add_argument("--explanation", type=int, help="id of the sentence drilled on")
 
     sub.add_parser("resume")
+    sub.add_parser("corpus")
     sub.add_parser("pending")
 
     ask_p = sub.add_parser("ask")
@@ -917,6 +955,8 @@ def main() -> int:
                               args.note, args.domain, args.kind)
         print(json.dumps({"id": eid, "oriented": {
             k: orient(v, args.valence, k) for k, v in scores.items() if v is not None}}, indent=2))
+    elif args.cmd == "corpus":
+        print(json.dumps(corpus(con), indent=2))
     elif args.cmd == "resume":
         print(json.dumps(resume(con), indent=2))
     elif args.cmd == "pending":

@@ -186,9 +186,11 @@ benefit by erasing the loss is denial, not growth, and scores mid at best.
 Identically to the dimensions: the ladder in `learning-loop.md`, with no
 technical name before `detect`.
 
-The tells are for **you**, not the learner. At `discriminate` you give two
-versions. Ask which one is over. Or which one has a yardstick in it. Never ask
-"can you spot the hidden comparison?"
+The tells are for **you**, not the learner. At `discriminate`, two of
+their sentences sit side by side and one movie runs forward. For `accept`:
+say the outcome stands and nothing reverses it, then ask what the sentence
+does with that. For `compare`: ask what the three-a-month is being measured
+against. Never ask "can you spot the hidden comparison?"
 
 The name of the principle arrives only after they have pointed at the thing.
 
