@@ -164,7 +164,7 @@ plugins/positive-psychology/
       app/backend/                     FastAPI, read-only
       app/frontend/                    React, the page
       app/run.sh                       starts it, safe to run twice
-scripts/sync.sh                        copies the live skill back into the repo
+scripts/reload.sh                      pushes your edits into the installed plugin
 ```
 
 Another skill drops in beside `learn-optimism/`. Neither manifest needs
