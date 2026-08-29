@@ -1,0 +1,20 @@
+{
+  "name": "positive-psychology",
+  "interface": {
+    "displayName": "Positive Psychology"
+  },
+  "plugins": [
+    {
+      "name": "positive-psychology",
+      "source": {
+        "source": "local",
+        "path": "./plugins/positive-psychology"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "NONE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

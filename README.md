@@ -102,10 +102,22 @@ The repo is a plugin marketplace, so Claude Code can install it directly:
 /plugin install positive-psychology@positive-psychology
 ```
 
-Codex and the other [Agent Plugins 1.0](https://agent-plugins.org) clients
-read the same tree. The plugin ships one manifest for each of the two specs,
-and both look for skills the same way, in folders sitting directly inside
-`skills/` with a `SKILL.md` in them.
+For Codex, point it at the same folder in `~/.codex/config.toml`:
+
+```toml
+[marketplaces.positive-psychology]
+source_type = "local"
+source = "/path/to/positive-psychology"
+
+[plugins."positive-psychology@positive-psychology"]
+enabled = true
+```
+
+One tree, three manifests, because the two tools each want their own and
+[Agent Plugins 1.0](https://agent-plugins.org) covers the rest. All of them
+find skills the same way, in folders sitting directly inside `skills/` with a
+`SKILL.md` in them. Both tools read the same file on disk, so whichever one
+you talk to, you're carrying on the same conversation.
 
 To take one skill on its own:
 
@@ -152,9 +164,11 @@ itself, and don't compare it to anyone.
 
 ```
 .claude-plugin/marketplace.json        the catalogue Claude Code reads
+.agents/plugins/marketplace.json       the same catalogue, for Codex
 plugins/positive-psychology/
   .claude-plugin/plugin.json           Claude Code manifest
-  plugin.json                          Agent Plugins 1.0, for Codex and the rest
+  .codex-plugin/plugin.json            Codex manifest
+  plugin.json                          Agent Plugins 1.0, for everyone else
   skills/
     learn-optimism/
       SKILL.md                         what it does each turn, and how it talks
@@ -167,5 +181,5 @@ plugins/positive-psychology/
 scripts/reload.sh                      pushes your edits into the installed plugin
 ```
 
-Another skill drops in beside `learn-optimism/`. Neither manifest needs
-touching, and both ecosystems find it.
+Another skill drops in beside `learn-optimism/`. No manifest needs touching,
+and every tool finds it.
