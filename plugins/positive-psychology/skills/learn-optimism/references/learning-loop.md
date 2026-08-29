@@ -34,8 +34,8 @@ real question failed without it.
    another, a word that returns whenever things go wrong. A drill built on
    one event at a time never sees any of it.
 
-2. **Name the lens, in your working notes.** One of the three dimensions
-   or six principles, written down before the words are composed. A
+2. **Name the lens, in your working notes.** One of the dimensions or
+   principles, written down before the words are composed. A
    question that cannot name its lens is decoration, and nothing here gets
    invented outside the sources.
 

@@ -197,8 +197,12 @@ CONCEPTS = [
      "states what happened without protesting that it happened",
      "sage", "principle"),
     ("compare", "the hidden yardstick",
-     "spots the imagined alternative a sentence is measuring against, and can "
-     "choose a different one on purpose",
+     "spots what a sentence measures against, an imagined life or another "
+     "person, and can choose the yardstick on purpose",
+     "sage", "principle"),
+    ("ethnocentric", "who else is in the story",
+     "hears whether a sentence's stake includes anyone else, or orbits the "
+     "gap between the life wanted and the life perceived",
      "sage", "principle"),
     ("agency", "the move that's still yours",
      "names a move that is theirs to make, without forcing and without waiting",

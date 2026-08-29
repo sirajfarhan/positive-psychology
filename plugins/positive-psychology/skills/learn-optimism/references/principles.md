@@ -1,7 +1,7 @@
 # The Principles
 
-Six principles drawn from Peter Sage's *The Inside Track*, defined by what they
-sound like in a sentence rather than by his phrasing. They are **taught and
+Seven principles drawn from Peter Sage's *The Inside Track*, defined by what
+they sound like in a sentence rather than by his phrasing. They are **taught and
 tracked, never charted**. The three scored dimensions carry the chart. These
 carry the teaching.
 
@@ -62,17 +62,74 @@ given in relation to something else. Widen the comparison on purpose and the
 same facts mean something different. He cried with relief after breaking his
 face skiing, because it could as easily have been his neck.
 
-So this is one skill with two directions: **spot the yardstick you did not
-choose, then choose one on purpose.**
+And the yardstick is not always an imagined life. Sage's name for the other
+kind is a **negative comparison frame**: measuring yourself against a person
+who seems smarter, better looking, or more together. His claim about it is
+mechanical rather than moral, because the comparison manufactures its own
+evidence. You spot the stronger candidate in the audition waiting room,
+imagine their better answers, carry the nerves into the room, fumble your
+own, and they get the part. The mind then points at the outcome and says
+"see, I told you so".
+
+So this is one skill with two moves and two kinds of yardstick: **spot the
+measure you did not choose, an imagined life or another person, then choose
+one on purpose.**
 
 **Tells.** *only · just · still · even · barely · by now · should be further
-along*
+along*, and when the yardstick is a person: *unlike · compared to · smarter
+than me · everyone else · has it together*
 
 | | |
 |---|---|
 | Low | "I'm still only doing three a month." *(against an unnamed target)* |
+| Low | "Everyone my age has this figured out already." *(the yardstick is people)* |
 | Middle | "Three a month." |
 | High | "Three a month, which is two more than when I had a job as well." |
+
+---
+
+## ethnocentric: who else is in the story
+
+**What it is.** Sage's definition takes one line: "focusing on others more
+than ourselves." He puts it at the centre of who handles adversity well, and
+his mechanism is the gap. Most stress comes from the distance between the
+life someone wants and the life they think they have, and an egocentric
+focus stares at that distance all day. A sentence fuelled by the gap orbits
+it: my money, my delay, what I need and still don't have. A sentence with
+someone else's stake in it runs on different fuel, and he credits exactly
+that with keeping him clear of the "woe is me" that smothered the prison
+around him.
+
+**Why it is not agency.** Agency hears whose the next move is. This hears
+who the move is for, and the two come apart cleanly: "I'll send one
+close-out note and put the slot back on the market" is clean Through-Me
+stance that can still be entirely gap-fuelled. The stance half of Sage's
+chapter lives in `agency`; this is the fuel half, and Through-Me runs on it.
+
+**A note on the word.** In the textbooks, ethnocentric means judging other
+cultures by your own group's standards, Sumner's term for a bias. Sage
+borrows it for the rung above egocentric and says exactly what he means by
+it: focusing on others more than ourselves. The book's page is the
+authority here, so his word stays, and the learner never meets it below
+`detect` anyway; when it arrives, it arrives as Sage's word carrying Sage's
+meaning.
+
+**The rung above.** Sage fences it himself: an ethnocentric focus "should
+NOT be confused with the destructive Martyr pattern", the giving that runs
+until empty. So the discrimination that matters here is real stake against
+performed sacrifice. His line for the real thing is that it "transcends the
+insecurities of ego", and giving that keeps score is the gap wearing
+generosity's clothes.
+
+**Tells.** A sentence where nobody else appears except as an instrument:
+*I need · for me · what I want · why won't they*. The other pole is people
+present with stakes of their own.
+
+| | |
+|---|---|
+| Low | "I need this to land, because I can't keep living like this." |
+| Middle | "It'd get me paid, and the team gets some slack out of it too." |
+| High | "If this lands, my sister stops fronting my rent, and I'd like to be the one who ends that." |
 
 ---
 
@@ -200,14 +257,14 @@ in the turn resolved, and the learner's whole answer was "do with what?"
 
 The name of the principle arrives only after they have pointed at the thing.
 
-One extra rule for these six. **A principle is only ever drilled on material
+One extra rule for these seven. **A principle is only ever drilled on material
 already in front of you.** These are not vocabulary. They are ways of hearing
 your own sentences, and a drill on a hypothetical teaches the wrong thing.
 
 Where that material lives differs, and the difference matters. `accept`,
-`compare` and `seed` are properties of a backward-looking causal statement,
-which is exactly what the store holds, so they drill cleanly off a stored
-quote. `agency`, `question` and `weight` live in a different kind of sentence:
+`compare`, `seed` and `ethnocentric` are properties of a backward-looking
+causal statement, which is exactly what the store holds, so they drill
+cleanly off a stored quote. `agency`, `question` and `weight` live in a different kind of sentence:
 a stance about what happens next, a question being run, a load being assigned.
 The store does not hold those. Drill these three only on something said in the
 live conversation, and call `ask` without `--explanation`, so nothing is

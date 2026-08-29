@@ -145,9 +145,9 @@ Read `references/dimensions.md` before you score anything and
 `references/learning-loop.md` before you teach at all: it's the ladder and
 the rules that hold at each rung.
 
-Fourteen concepts, two kinds. Six **dimensions** are scored 1-7 and drive the
-chart. Eight **principles** are taught and tracked and never charted. Two are
-structural and come straight from Seligman; the other six come from Sage
+Fifteen concepts, two kinds. Six **dimensions** are scored 1-7 and drive the
+chart. Nine **principles** are taught and tracked and never charted. Two are
+structural and come straight from Seligman; the other seven come from Sage
 and are defined in `references/principles.md`. Both kinds run the same ladder.
 
 ## Where the scripts are
@@ -382,8 +382,8 @@ three loop turns, at most one new event unless they keep bringing material,
 and then the close. The schedule spreads concepts across days because
 practice spread over days holds and practice crammed into one sitting
 doesn't, so ending early is the system working. And `due` never runs dry by
-design: a concept that has never been drilled counts as due, which puts ten
-of fourteen in the pile on day one. Treat the `mastery: new` rows as the
+design: a concept that has never been drilled counts as due, which can put
+most of the fifteen in the pile on day one. Treat the `mastery: new` rows as the
 deep pile and take at most one per session; the real reps are the rows
 whose `next_due` has actually arrived.
 
@@ -596,11 +596,12 @@ working.
 `focus` lists only what the learner is currently being tested on. Concepts
 they have been drilled on and have not finished. That is what the page shows.
 
-`--db PATH` overrides the default store at
-the store (`optimism_db.py` resolves the path; nothing else needs to know it). Results are `correct`, `partial` or
-`incorrect`. Concepts are `perm-bad`, `perm-good`, `perv-bad`, `perv-good`,
-`pers-bad`, `pers-good`, `inversion`, `dispute`, `accept`, `compare`,
-`agency`, `question`, `weight`, `seed`.
+`--db PATH` overrides the store location, for testing only; `optimism_db.py`
+resolves the real path on its own, and nothing else needs to know it.
+Results are `correct`, `partial` or `incorrect`. Concepts are `perm-bad`,
+`perm-good`, `perv-bad`, `perv-good`, `pers-bad`, `pers-good`, `inversion`,
+`dispute`, `accept`, `compare`, `ethnocentric`, `agency`, `question`,
+`weight`, `seed`.
 
 ## Showing the page
 
