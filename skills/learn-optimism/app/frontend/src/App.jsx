@@ -103,14 +103,20 @@ export default function App() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch('/api/reading')
-      .then((r) => (r.ok ? r.json() : r.json().then((e) => Promise.reject(e.detail))))
-      .then(setData)
-      .catch((e) => setError(String(e)))
-    fetch('/api/focus')
-      .then((r) => (r.ok ? r.json() : { focus: [] }))
-      .then((d) => setFocus(d.focus || []))
-      .catch(() => {})
+    const load = () => {
+      fetch('/api/reading')
+        .then((r) => (r.ok ? r.json() : r.json().then((e) => Promise.reject(e.detail))))
+        .then(setData)
+        .catch((e) => setError(String(e)))
+      fetch('/api/focus')
+        .then((r) => (r.ok ? r.json() : { focus: [] }))
+        .then((d) => setFocus(d.focus || []))
+        .catch(() => {})
+    }
+    load()
+    // the skill writes from chat while this page sits open, so poll
+    const t = setInterval(load, 5000)
+    return () => clearInterval(t)
   }, [])
 
   if (error) return <State>{error}</State>

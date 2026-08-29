@@ -137,11 +137,12 @@ A discriminate drill. Feynman's toy case on their own sentence:
 
 Right answer:
 > There it is. "That week" can end. "Always" can't. You heard that with
-> nothing to go on but the sound of it.
+> nothing to go on but the sound of it. Same move, next sentence.
 
 Wrong answer. Feynman, no fooling, no scolding:
 > Look at "always" for a second. What would have to happen for it to stop
-> being true? If the answer is nothing, it was never a fact about the week.
+> being true? If the answer is nothing, it was never a fact about the week,
+> so pick again.
 
 Live catch, when they do it unprompted:
 > You heard yourself do it just then. "That pitch," not "every pitch." That

@@ -137,7 +137,7 @@ given yet, and "over" is doing unexplained work.
 ```text
 time    Which one could stop being true by next month?
 scope   Which one is about more of your life?
-self    Which one is about something you did, and which is about who you are?
+self    Which of those is about something you did?
 ```
 
 **Deliver the pair as speech, never as a worksheet.** No lettered options, no
@@ -222,8 +222,10 @@ stage 2 on, the sentences are ones they actually said, pulled from the
 `explanation` table. A drill run on invented sentences tests vocabulary; a
 drill run on their own sentences tests the ear.
 
-**One concept per turn.** Retrieve, give feedback, repair, then at most one
-new step.
+**One concept per turn.** Retrieve, give feedback, repair, then one new
+step. The step is a link in the chain, not an option on it. A turn that
+delivers feedback and stops has broken the loop, and the learner saying
+"okay" to restart it is the symptom.
 
 **Update the ledger before you respond.** Record the attempt first, then write
 the reply. A reply composed before the ledger is written will pitch at the
