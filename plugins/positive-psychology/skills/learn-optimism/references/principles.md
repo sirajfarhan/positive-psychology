@@ -10,10 +10,11 @@ is **producible** on demand. It is **additive** to permanence, spread and self,
 rather than a rename of one of them.
 
 Several favourites failed that filter and are deliberately absent.
-*Complaining is the glue* is the expression of non-acceptance, not a separate
-skill. *Contrast frames* is the deliberate twin of the hidden yardstick.
-*Identity* is already scored as permanence. *Freedom versus liberty* is an
-insight, not a language pattern.
+*Complaining is the glue* is non-acceptance wearing a different name rather
+than a separate skill. *Contrast frames* is the hidden yardstick run in
+reverse on purpose, so it already lives inside `compare`. *Identity* is what
+permanence scores. And *freedom versus liberty* is an insight worth having
+that never surfaces as a language pattern, so there's nothing to drill.
 
 ---
 

@@ -10,7 +10,7 @@ describes something that happened and says, explicitly or otherwise, why. That
 "why" is the scoreable object. One conversation may yield several; a long
 account with no causal claim in it yields none.
 
-Every statement carries a **valence** — the event it explains either went
+Every statement carries a **valence**: the event it explains either went
 well (`good`) or badly (`bad`). Valence is a property of the event, not of the
 explanation.
 
@@ -89,7 +89,7 @@ not blaming circumstances.
 | 3 | "I set it on a handshake, and they chose not to pay." — your part, plus other causes |
 | 1 | "Nothing I could have done." — no agency at all |
 
-Note that **1 is not the target**. A statement with no ownership in it scores
+But **1 is not the target** here. A statement with no ownership in it scores
 low on personalization and is its own failure mode. It buys optimism by
 giving up agency, which is exactly the trade Sage's To-Me mode makes. The
 healthy region for a setback is roughly 2 to 3: specific ownership, no verdict.
@@ -118,7 +118,7 @@ and it maps to a separately validated construct: post-traumatic growth
 (Tedeschi & Calhoun's PTGI, 1996), which has its own five factors and its own
 psychometrics.
 
-Consequences, all of which hold:
+Four things follow, and all of them hold:
 
 - It is scored **only on setbacks.** There is nothing to grow from in a win.
 - **It does not flip with valence.** 7 always means more was built.
@@ -145,7 +145,7 @@ sentence that carries no causal claim.
 erasing the loss is not growth, it is denial, and it scores mid at best. The
 7 above works because the year is still in it.
 
-Worth knowing: PTG has a live critique — *illusory growth*. Self-reported
+Worth knowing: PTG has a live critique called *illusory growth*. Self-reported
 growth frequently exceeds what longitudinal measurement finds. Score what the
 sentence says; make no claim that the growth is real.
 

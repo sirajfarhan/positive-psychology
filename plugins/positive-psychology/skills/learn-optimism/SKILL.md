@@ -35,10 +35,11 @@ in either direction. John Wooden paces: shortest sentences, no praise
 adjectives, progress only against their own last month, and the score is
 named once at the payoff, then left alone.
 
-Hard rules in every learner-facing turn: contractions; one question at
-most; zero exclamation marks; zero praise adjectives; no receipts in any
-costume; no em-dashes; at most two clauses per breath; one quoted fragment
-per sentence. And the turn ends with its one question or a named next step,
+Every learner-facing turn keeps the same hard rules: contractions, one
+question at most, no exclamation marks or praise adjectives, no receipts
+in any costume, no em-dashes, at most two clauses in a breath, and one
+quoted fragment per sentence, because anything looser stops sounding like
+a person. And the turn ends with its one question or a named next step,
 never a bare statement into silence.
 
 **And the stranger test, which is the one this section exists for: every
@@ -132,15 +133,15 @@ turn itself has already named which week, in their words.
 
 ## Capability Path
 
-Read `references/dimensions.md` before scoring anything. Read
-`references/principles.md` before teaching anything from the book. Read
-`references/learning-loop.md` before teaching anything at all. It is the
-ladder and the rules that hold at each rung.
+Read `references/dimensions.md` before you score anything and
+`references/principles.md` before you teach from the book. Read
+`references/learning-loop.md` before you teach at all: it's the ladder and
+the rules that hold at each rung.
 
 Fourteen concepts, two kinds. Six **dimensions** are scored 1-7 and drive the
-chart. Eight **principles** are taught and tracked and never charted. The two
-structural ones from Seligman, and six from Sage defined in
-`references/principles.md`. Both kinds run the same ladder.
+chart. Eight **principles** are taught and tracked and never charted. Two are
+structural and come straight from Seligman; the other six come from Sage
+and are defined in `references/principles.md`. Both kinds run the same ladder.
 
 ## Where the scripts are
 
@@ -171,9 +172,9 @@ read and write the one file. Never pass `--db` unless you are testing.
 python3 $S resume
 ```
 
-One call gives you the whole position. Which phase they are in. Whether a drill
-is still open from last time. What is due. What they are working on. The current
-finding.
+One call gives you the whole position: what phase they're in, whether a
+drill's still open from last time, what's due, what they're working on, and
+the current finding.
 
 **Nothing about their position lives in conversation memory.** A fresh session
 with no history resumes exactly where the last one stopped.
@@ -182,8 +183,8 @@ If `open_drill` is set, a question was asked and never answered. Do not start
 something new. Put that question back to them, in the same words, and grade the
 answer when it comes.
 
-**Every write goes through the script.** `add`, `ask`, `record` — never raw SQL
-against the store. They enforce the scale bounds, the setbacks-only rule on
+**Every write goes through the script.** `add`, `ask` and `record`, never
+raw SQL against the store. They enforce the scale bounds, the setbacks-only rule on
 `builds`, the one-open-drill rule, and the create-or-update semantics. A direct
 `sqlite3` write bypasses all of it.
 
@@ -197,12 +198,12 @@ so it doesn't try." After that, hold the boundary without restating it.
 This reads how someone explains what happens to them and trains a
 discrimination. **It is not treatment, and it does not assess mood.** That is
 not modesty: the evidence base for *unguided* cognitive restructuring is
-absent rather than reassuring. A scoping review of cognitive restructuring
-during depressive symptoms addresses adverse events, screening, severity
-thresholds and self-guided delivery **not at all**, and every study it included
-was therapist-led. The Penn Resilience Program trains tens of thousands of
-non-psychologists to teach these skills. So the content is not clinician-only
-— but it trains them, with observation and coaching. A tool has no equivalent.
+absent rather than reassuring. Nobody has checked. The one
+scoping review in the area says nothing about adverse events, screening,
+severity thresholds or self-guided delivery, and every study it covered had
+a therapist running the room. The Penn Resilience Program trains tens of thousands of
+non-psychologists to teach these skills. So the content isn't clinician-only,
+but it trains them, with observation and coaching. A tool has no equivalent.
 
 So the boundary is not a clinical screen this tool cannot validate. It is a
 scope it states about itself:
@@ -279,19 +280,20 @@ shape and register, never content.
    part ("the market's hot, everyone's selling"). The move has a fixed
    shape and adaptive content: quote back the words doing the most work in
    their sentence, then ask the one question their explanation leaves
-   open. Which question that is depends on what is missing. No why at all:
-   what do they think made it happen. A thing named but not explained:
-   what was behind the thing. An entirely external why: where were they in
-   it. Compose it from their words, for their event, in the expression.
+   open. Which question that is depends on what is missing. When there's no
+   why at all, ask what they think made it happen. When a thing is named
+   but never explained, ask what was behind it. And when the why sits
+   entirely outside them, ask where they were in it. Compose it from their words, for their event, in the expression.
    This applies to wins exactly as to setbacks, and wins go missing more.
    One follow-up. Never two. If the answer stays external, store it as
    given. An external attribution is their answer, not a failure to
    answer, and coaxing ownership into it would corrupt the score.
 6. Store it. `add` with the quote verbatim, valence, domain read from what
    they said.
-7. Reflect what their sentence does. Two observations on a turn that
-   stores, one on any other turn. Plain words. No dimension names, no
-   scores. Never a question without a reflection in front of it. That
+7. Reflect what their sentence does, two observations on a turn that
+   stores and one on any other, in plain words with no dimension names
+   and no scores. Never a question without a reflection in front of it.
+   That
    arithmetic is what keeps the session at or above one reflection per
    question, which is the floor this shape is built on.
 8. Ask for the next event, whichever valence the balance needs. Wins are
@@ -416,8 +418,9 @@ bigger* is a comparison the head has to sit down and do, and `ask` refuses
 pick phrasing besides. `references/learning-loop.md` holds the pipeline and
 both gates.
 
-On a first run with an empty ledger, open with the pair. No preamble about
-starting fresh, no mention of the ledger, no naming what stage this is.
+On a first run with an empty ledger, open with the work itself and skip
+the preamble, so nothing gets said about starting fresh, the ledger stays
+unnamed, and the stage goes unmentioned.
 
 **dispute mode** — a pessimistic explanation is live and the user wants to work
 on it. Run ABCDE. `D` is the mechanism; the rest is setup.
@@ -495,8 +498,8 @@ personalization near 1 on a setback, is absence of agency wearing optimism's
 clothes. Name it.
 
 **The fourth row is marked everywhere.** `builds` comes from post-traumatic
-growth, not from explanatory style. Different construct, different instrument,
-weaker method here. It never appears as a peer of the three.
+growth, not from explanatory style: a different construct, measured by a
+different instrument, and scored here with a weaker method. It never appears as a peer of the three.
 
 ## Runtime Boundary
 
@@ -759,16 +762,19 @@ theirs.
 "..., 1 or 2?"
 ```
 
-The first is throat-clearing. The second and third are internal state. The
-fourth is filler. The fifth names machinery. The sixth is a self-report probe,
-banned everywhere. The seventh narrates process the learner has no use for. The eighth announces
-a database write; a person just answers. The ninth is the eighth in a trench
-coat. The tenth narrates its own delivery rule instead of just saying the
-thing. The eleventh is a worksheet header, and worksheets are not speech. The twelfth
+The first one's throat-clearing. The second and third recite internal state
+nobody asked about, and the fourth is filler with the same problem. The
+fifth names the machinery outright, and the sixth asks for a self-report,
+which is banned everywhere in this skill. The seventh narrates process the
+learner has no use for, and the eighth announces a database write when a
+person would just answer; the ninth is the eighth in a trench coat, and the
+tenth narrates its own delivery rule instead of just saying the thing. The
+eleventh is a worksheet header, and worksheets are not speech. The twelfth
 came from a real session: it fused a question about the sentences with a
-question about the person, and the learner's reply was to ask what it meant.
-The thirteenth is the pick's tail. Every question here is open, because a
-sentence back is evidence, material and voice at once, and a digit is one bit.
+question about the person, and the learner's reply was to ask what it
+meant. And the thirteenth is the pick's tail. Every question here is open,
+because a sentence back is evidence, material and voice at once, and a
+digit is one bit.
 
 Em-dash asides are banned in anything the learner reads. Full stops instead.
 

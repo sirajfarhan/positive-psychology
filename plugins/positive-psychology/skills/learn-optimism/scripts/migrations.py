@@ -47,7 +47,7 @@ def _add_column(con: sqlite3.Connection, table: str, col: str, decl: str) -> Non
 # --------------------------------------------------------------------------
 
 def _m1_baseline(con: sqlite3.Connection) -> None:
-    """The four tables as they stand, created only if absent.
+    """The three tables as they stood at versioning, created only if absent.
 
     Stores that predate versioning already have these, so every statement is
     IF NOT EXISTS and this migration is a no-op for them. It exists so a fresh

@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Read-only HTTP layer over the optimism store.
+"""HTTP layer over the optimism store, and it takes no orders.
 
-The skill is the only writer. This server never mutates anything -- every
-route is a GET, and the DB is opened read-only where the file already exists.
+Every route is a GET, so nothing the page does can change what the skill
+captured. Honesty about the plumbing, though: con() runs store.init() on
+each request, which catches up a pending migration and re-upserts the fixed
+concept seed, then commits. Both are idempotent, both touch only the seed,
+and the learner's sentences are never written from here.
 """
 
 from __future__ import annotations

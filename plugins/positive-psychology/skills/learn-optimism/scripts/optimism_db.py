@@ -587,9 +587,10 @@ def reschedule(row: sqlite3.Row, result: str) -> tuple[float, float]:
     return round(interval, 3), round(ease, 3)
 
 
-# A two-way pick is stranger-answerable by design, so a concept gets exactly
-# one: its first. After that the questions go open, and a pick returns only
-# after a miss. Prose could not hold this line, so the script does.
+# Picks are retired: every question is open, always. These markers exist so
+# ask() can catch a prompt that still reads like a pick and refuse it, and
+# --allow-pick is a manual escape hatch for the rare constructed fallback,
+# not a scheduled return.
 PICK_MARKERS = ("1 or 2", "2 or 1", "a or b", "which of those",
                 "which of these", "which one", "which version", "either")
 
@@ -706,12 +707,12 @@ def _require_concept(con, concept_id: str) -> None:
 
 
 def asked(con, concept_id: str) -> dict:
-    _require_concept(con, concept_id)
     """What has already been put to the learner for this concept.
 
     Drills have to stay novel, so before composing one, check this: the prompts
     already used, and the explanations already drilled on.
     """
+    _require_concept(con, concept_id)
     rows = con.execute(
         """SELECT a.at, a.stage, a.result, a.prompt, a.explanation_id, e.quote
            FROM attempt a LEFT JOIN explanation e ON e.id = a.explanation_id
@@ -726,13 +727,13 @@ def asked(con, concept_id: str) -> dict:
 
 
 def unused_explanations(con, concept_id: str, limit: int = 5) -> list[dict]:
-    _require_concept(con, concept_id)
     """Stored sentences this concept has not been drilled on yet.
 
     A *-good concept only ever drills on wins and a *-bad concept only on
     setbacks, so the wrong valence is filtered out here rather than trusted
     to the caller.
     """
+    _require_concept(con, concept_id)
     limit = max(1, limit)  # SQLite reads a negative LIMIT as unbounded
     valence = ("good" if concept_id.endswith("-good")
                else "bad" if concept_id.endswith("-bad") else None)
@@ -819,13 +820,13 @@ def due(con, limit: int = 3) -> list[dict]:
 
 
 def focus(con, limit: int = 4) -> list[dict]:
-    limit = max(1, limit)  # SQLite reads a negative LIMIT as unbounded
     """What the learner is currently being tested on.
 
     Only concepts they have actually been drilled on and have not finished.
     A concept at 'new' has never been put to them, and one at 'live' is done --
     neither is under test, so neither belongs on the page.
     """
+    limit = max(1, limit)  # SQLite reads a negative LIMIT as unbounded
     rows = con.execute(
         """SELECT id, name, performance, source, kind, mastery, seen, correct, next_due
            FROM concept
@@ -894,7 +895,7 @@ def main() -> int:
     ask_p.add_argument("--prompt", required=True)
     ask_p.add_argument("--explanation", type=int)
     ask_p.add_argument("--allow-pick", action="store_true",
-                       help="only after a miss; picks are otherwise first-question-only")
+                       help="escape hatch for the rare constructed fallback; every question is open otherwise")
 
     ak = sub.add_parser("asked")
     ak.add_argument("concept")

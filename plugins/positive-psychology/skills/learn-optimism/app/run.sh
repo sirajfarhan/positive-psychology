@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Bring the page up, idempotently. Safe to call on every invocation -- if it is
-# already running this only prints the URL and exits.
+# Bring the page up, idempotently. Safe to call on every invocation -- when
+# both halves are already running it says so, prints the URL, and still opens
+# the browser unless --no-open asks it not to.
 #
 #   ./run.sh            start whatever is missing, then open the browser
 #   ./run.sh --no-open  same, without opening a browser

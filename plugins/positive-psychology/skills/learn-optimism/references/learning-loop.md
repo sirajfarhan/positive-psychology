@@ -72,7 +72,9 @@ homework, and homework is the wrong muscle.
 
 One question's history shows the pipeline being learned the hard way. A
 real session asked "which of those takes in more of your life?", and the
-learner asked what it meant: fused, self-grading, a property. The first
+learner asked what it meant. It fused two questions into one, asked them
+to rate themselves, and treated the answer as a property to measure instead
+of a movie to run. The first
 repair, "which of those is about more than this stay?", kept the property
 and failed the fetch gate. The second, "which of those feels bigger?",
 went felt but kept the comparison, and "bigger" is a value word with no
@@ -124,9 +126,9 @@ think it happened.
 That is the whole opening; a preamble, an explanation of what this is, or a
 tour of what happens next would only delay the one real thing it asks for.
 
-Their answer gives you three things at once. An event to build pairs from. A
-verbatim causal claim to score and store. And, read from which words are doing
-the work, **which dimension to probe first**.
+Their answer gives you three things at once: an event to build from, a
+verbatim causal claim to score and store, and, read off which words are
+doing the work, **the dimension to probe first**.
 
 **Read their sentence, then pick the live dimension.** Do not run a fixed order.
 
@@ -154,10 +156,10 @@ healthier to believe.
 
 ### Stage 1. discriminate
 
-Two of their own sentences, side by side, and one open question with a
-single slot, aimed at one of them or run past both into one answer. The
-dimension names, the theory and the scale all stay out of the room for
-now.
+Two of their own sentences sit side by side, and one open question with a
+single slot goes underneath, aimed at one of them or run past both into
+one answer. The dimension names, the theory and the scale all stay out of
+the room for now.
 
 **The corpus supplies the contrast.** Twelve stored sentences nearly always
 hold a real pair: the same cause explaining both valences, one week told
@@ -244,8 +246,9 @@ material the moment they give you any.
 
 ### Stage 2. detect
 
-Open questions only from here on. Now their own words, and now the
-vocabulary, introduced as a name for the thing they just heard. The answer
+From here on the drills run entirely on their own words, with the
+constructed fallback gone, and the vocabulary arrives as a name for the
+thing they just heard. The answer
 they give is often a fresh re-explanation in their own voice: store it with
 `--kind practice`, because it is tomorrow's anchor material.
 
@@ -270,7 +273,8 @@ after they have pointed at it.
 
 ### Stage 3. produce
 
-Same real event, same facts, one dimension moved. Output, not recognition.
+The event and the facts stay put; only one dimension moves. This asks for
+output, not recognition.
 
 ```
 Your sentence, same facts, nothing softened:
@@ -356,7 +360,7 @@ is not yet learnable:
 | **Place** | the permanence row, setback block, `B` in ABCDE |
 
 The caveat is the load-bearing part. The display can help memory, and the row
-positions make a pattern visible — **but the verbatim sentence decides the
+positions make a pattern visible, but **the verbatim sentence decides the
 score.** Where the chart and the quote disagree, the quote wins and the chart is
 wrong. Never reason from a bar back to what someone must have said.
 
@@ -382,7 +386,7 @@ plain       You said that one like it's a fact about you, not a thing
 scaffolded  You're describing the cause as still running rather than
             finished. For a setback that's the heavier end, and the name
             for it is permanence.
-mixed       Permanence is high there - a 6 - because "bad with contracts"
+mixed       Permanence is high there, a 6, because "bad with contracts"
             is a trait rather than an event.
 compact     perm 6, setback.
 fluent      6 / 6 / 5.
@@ -403,8 +407,8 @@ working toward rather than what they are given. Introducing it early produces
 someone who can say "permanence" and still cannot hear their own sentences,
 which is the exact failure this skill exists to avoid.
 
-Padding late is the opposite error and cheaper - it is only the skill talking to
-itself.
+Padding late is the opposite error, and a cheaper one, since it's only the
+skill talking to itself.
 
 ## How to talk to the learner
 
@@ -444,8 +448,8 @@ and nobody rates themselves here. The stored sentences already answer who they a
 train the ear.
 
 **No compound jargon, ever.** If a sentence needs a glossary, it is the wrong
-sentence. This holds even once the learner is fluent - fluency earns shorter,
-not denser.
+sentence. This holds even once the learner is fluent: fluency earns
+shorter, not denser.
 
 **Plain register, and no throat-clearing.** Open with the work. A line like
 *clean start, the ledger is fresh, so we begin at the ear* is the skill admiring
