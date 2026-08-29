@@ -1,0 +1,11 @@
+{
+  "name": "positive-psychology",
+  "version": "0.1.0",
+  "description": "Reads how you explain real events, scores it the way the research does, and trains the ear by drilling your own sentences.",
+  "author": { "name": "Siraj", "email": "hello@siraj.ai", "url": "https://siraj.ai" },
+  "homepage": "https://github.com/sirajfarhan/positive-psychology",
+  "repository": "https://github.com/sirajfarhan/positive-psychology",
+  "license": "MIT",
+  "keywords": ["optimism", "explanatory-style", "seligman", "learning"],
+  "skills": ["./skills"]
+}

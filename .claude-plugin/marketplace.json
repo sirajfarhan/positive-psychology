@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "positive-psychology",
+  "owner": {
+    "name": "Siraj",
+    "email": "hello@siraj.ai",
+    "url": "https://siraj.ai"
+  },
+  "metadata": {
+    "description": "Skills that measure and train what positive psychology can actually measure.",
+    "version": "0.1.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "positive-psychology",
+      "source": "positive-psychology",
+      "displayName": "Positive Psychology",
+      "description": "Reads how you explain real events, scores it the way the research does, and trains the ear by drilling your own sentences.",
+      "version": "0.1.0",
+      "author": { "name": "Siraj", "email": "hello@siraj.ai" },
+      "homepage": "https://github.com/sirajfarhan/positive-psychology",
+      "repository": "https://github.com/sirajfarhan/positive-psychology",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["optimism", "explanatory-style", "seligman", "learning", "cbt"]
+    }
+  ]
+}

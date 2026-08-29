@@ -27,8 +27,11 @@ import argparse
 import json
 import os
 import sqlite3
+import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+
+import migrations
 
 # OPTIMISM_DB overrides the store location. Tests set it so they never touch
 # the real corpus; the server reads the same variable, so both halves agree.
@@ -110,7 +113,7 @@ NEED_PER_VALENCE = 6
 # others, so the spread is reported even though it does not gate anything.
 DOMAINS = ("work", "relationships", "health", "money", "self", "other")
 
-SCHEMA = """
+LEGACY_SCHEMA_UNUSED = """
 CREATE TABLE IF NOT EXISTS explanation (
     id              INTEGER PRIMARY KEY AUTOINCREMENT,
     captured_at     TEXT    NOT NULL,
@@ -185,24 +188,13 @@ def connect(path: Path) -> sqlite3.Connection:
     return con
 
 
-def init(con: sqlite3.Connection) -> None:
-    con.executescript(SCHEMA)
-    # migrate stores created before source/kind existed
-    have = {r[1] for r in con.execute("PRAGMA table_info(concept)")}
-    for col, default in (("source", "seligman"), ("kind", "principle")):
-        if col not in have:
-            con.execute(f"ALTER TABLE concept ADD COLUMN {col} TEXT NOT NULL DEFAULT '{default}'")
-    have_e = {r[1] for r in con.execute("PRAGMA table_info(explanation)")}
-    if "domain" not in have_e:
-        con.execute("ALTER TABLE explanation ADD COLUMN domain TEXT")
-    if "kind" not in have_e:
-        con.execute("ALTER TABLE explanation ADD COLUMN kind TEXT NOT NULL DEFAULT 'event'")
-    have_a = {r[1] for r in con.execute("PRAGMA table_info(attempt)")}
-    for col, decl in (("prompt", "TEXT"), ("explanation_id", "INTEGER")):
-        if col not in have_a:
-            con.execute(f"ALTER TABLE attempt ADD COLUMN {col} {decl}")
-    # only now that the migration has run can this be indexed
-    con.execute("CREATE INDEX IF NOT EXISTS idx_attempt_expl ON attempt(explanation_id)")
+def init(con: sqlite3.Connection, path: Path | None = None) -> dict:
+    """Bring the store up to date, then seed the concept rows.
+
+    Schema shape is the migration runner's job now. This keeps only the seed,
+    which is data rather than structure, and is safe to re-run.
+    """
+    report = migrations.migrate(con, path)
     for cid, name, performance, source, kind in CONCEPTS:
         con.execute(
             """INSERT INTO concept (id, name, performance, source, kind)
@@ -213,6 +205,7 @@ def init(con: sqlite3.Connection) -> None:
             (cid, name, performance, source, kind),
         )
     con.commit()
+    return report
 
 
 def orient(raw: float | None, valence: str, dim: str = "permanence") -> float | None:
@@ -691,6 +684,7 @@ def main() -> int:
     sub.add_parser("init")
     sub.add_parser("reading")
     sub.add_parser("readiness")
+    sub.add_parser("migrate")
     sub.add_parser("profile")
     sub.add_parser("summary")
 
@@ -741,10 +735,18 @@ def main() -> int:
 
     args = p.parse_args()
     con = connect(args.db)
-    init(con)
+    report = init(con, args.db)
+    if report["applied"] and args.cmd != "migrate":
+        # stderr: stdout is JSON that callers parse
+        print(f"store migrated v{report['from']} -> v{report['to']}",
+              file=sys.stderr, flush=True)
 
-    if args.cmd == "init":
-        print(json.dumps({"db": str(args.db), "concepts": len(CONCEPTS)}, indent=2))
+    if args.cmd == "migrate":
+        print(json.dumps({**report, "latest": migrations.LATEST,
+                          "at": migrations.current_version(con)}, indent=2))
+    elif args.cmd == "init":
+        print(json.dumps({"db": str(args.db), "concepts": len(CONCEPTS),
+                          "schema_version": migrations.current_version(con)}, indent=2))
     elif args.cmd == "profile":
         print(json.dumps(profile(con), indent=2))
     elif args.cmd == "readiness":
