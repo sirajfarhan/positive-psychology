@@ -45,59 +45,48 @@ the difference before it ever gives you a term for it.
 you left off, across any session.
 
 The app is read only, and for now you interact with it through chat. The
-page refreshes every few seconds, so what you're practising moves while
-you're still talking.
+page refreshes every few seconds.
 
 ## How the teaching works
 
 ### It listens before it teaches
 
 Six things that went wrong and six that went right. Until it has those it
-only collects, and the scores, the practice and the vocabulary all wait
-their turn.
+only collects those.
 
 ### Then it practises on your own sentences
 
-With twelve in hand it reads everything you've told it and finds the pairs
-you already wrote, the same cause explaining a win and a setback. Then it
-asks you one question built out of your own details, the kind you answer
-on gut feel. It never repeats itself, because it keeps every question it
-has asked and every sentence it has used.
+It finds the pairs you already wrote, the same cause explaining a win and
+a setback, and asks one question out of them. It never repeats itself.
 
 ### And every question it asks is open
 
-Your answers come back as sentences, and a sentence carries three things
-at once: the evidence for how you heard it, tomorrow's practice material,
-and more of your own voice for the next question to stand on. A
-multiple-choice answer would carry none of that.
+Your answers come back as sentences, which carry the evidence for how you
+heard it and more of your own voice for the next question to stand on.
 
 ### So your answers become tomorrow's material
 
-When you retell an event during practice, that new sentence joins the pool
-the questions come from. It never counts toward your scores, because a
-sentence you were talked into isn't evidence of how you talk on your own.
+When you retell an event during practice, that sentence joins the pool the
+questions come from, and it never counts toward your scores.
 
 ### Over weeks the questions climb, and terms come last
 
 First you notice the two sentences feel different. Then you say the
 difference in your own words. Then you retell your own event the other
-way. The last step is catching yourself doing it in normal conversation,
-with nobody asking. You move up a step by doing it, and a wrong answer
-costs you one once you've climbed high enough to have one to lose.
+way. The last step is catching yourself doing it in normal conversation. A
+wrong answer costs you a step once you've climbed high enough to have one
+to lose.
 
 ### Meanwhile your scores move when you do
 
-They only look at your latest six of each kind, so recent change shows up
-instead of getting buried under a lifetime average. Once six more of each
-sit behind those, it shows which way you've moved. Until then it shows
-where you stand.
+They only look at your latest six of each kind. Once six more of each sit
+behind those, it shows which way you've moved.
 
 ## What the code enforces
 
 It refuses multiple-choice questions and says why. It won't take a score
 outside the scale, or record growth on a win, because there's nothing to
-grow from there. Only one question stays open at a time, and the code
-blocks a second.
+grow from there. Only one question stays open at a time.
 
 ## Install
 
@@ -108,8 +97,8 @@ The repo is a plugin marketplace, so Claude Code can install it directly:
 /plugin install positive-psychology@positive-psychology
 ```
 
-Codex reads the same folder, and both tools share the one database, so
-whichever you talk to, you're carrying on the same conversation. You'll need
+Codex reads the same folder, and both tools share the one database. You'll
+need
 `python3` and `node`, and the app builds the rest of itself the first time
 it runs. Say `/learn-optimism` and it opens with one question.
 
