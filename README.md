@@ -95,8 +95,6 @@ changed and everything else identical.
 **Catching it.** You hear yourself do it in ordinary conversation, with
 nobody asking.
 
-Get a question wrong past the first stage and you drop back one.
-
 ### Your scores follow your latest six
 
 Only your six most recent setbacks and six most recent wins count. The part
@@ -109,13 +107,6 @@ The six are the three questions above, asked about setbacks and about wins,
 and those are the bars on the page. The other nine never appear there:
 whether you've stopped arguing with what happened, what you're measuring
 yourself against, where the next move sits, and six more.
-
-## What the code enforces
-
-Questions stay open-ended, and any attempt at a multiple choice gets turned
-down with a reason. Scores stay inside the one-to-seven range the
-researchers use. And one question stays open at a time, so you always know
-which one you're answering.
 
 ## Install
 
