@@ -3,18 +3,16 @@
 Skills for Claude Code and Codex, built on what positive psychology can
 actually measure.
 
-A skill here is an app. It has a database that remembers you, a service of
-its own running behind it, a page you can watch, and the instructions that
-tell the model how to teach. Those four run as one thing, and the
-conversation is what drives them: talking is the only way anything gets
-in, so what you say in chat becomes what the page shows and what
-tomorrow's practice is made of. The page is a window rather than a control
-panel, and it has no buttons because everything it could offer you would
-be something better said out loud.
+It follows a new architecture where a skill is an app. This one has its own
+user interface, database and backend service, along with its instructions,
+and all of them together drive the model to train optimism.
 
-Most skills are a page of instructions, so they forget you when the
-session ends. A database lets one measure you across months, and a service
-and a page turn that measurement into something you can watch move.
+Each part carries its share. The database holds every sentence you've given
+it, so the skill knows you across months instead of one session. The
+backend service reads that database and works out where you stand. The user
+interface shows you that while you're still talking. The instructions are
+what the model reads before it speaks, so a sentence gets scored the same
+way today as it did last week.
 
 ---
 
@@ -48,9 +46,9 @@ Four parts, one job.
 | Part | What it does |
 |---|---|
 | **The database** | Keeps every sentence you've given it, what you've practised, and any question still waiting on you |
-| **The service** | Reads that database and hands the page your current scores, and the movement once there's history behind them |
-| **The interface** | The picture above: your result in a sentence, a bar for each of the three questions, and what you're practising |
-| **The instructions** | What the model reads before it speaks: how to score a sentence, what to ask next, and how to say it so it sounds like a person |
+| **The backend service** | Reads that database and hands the page your current scores, and the movement once there's history behind them |
+| **The user interface** | The picture above: your result in a sentence, a bar for each of the three questions, and what you're practising |
+| **The instructions** | How to score a sentence, what to ask next, and how to say it so it sounds like a person |
 
 You say `/learn-optimism`, and it opens your file and starts the page if it
 isn't already running. If a question was left unanswered last time, it
@@ -126,8 +124,8 @@ The repo is a plugin marketplace, so Claude Code can install it directly:
 Codex reads the same folder as a local plugin, and both tools share the one
 database, so whichever you talk to, you're carrying on the same
 conversation. You'll need `python3` and `node`; the app builds the rest of
-itself the first time it runs, and starts its own service and page
-whenever you say `/learn-optimism`. It opens with one question.
+itself the first time it runs, and starts its backend service and user
+interface whenever you say `/learn-optimism`. It opens with one question.
 
 ## The database
 
@@ -165,6 +163,6 @@ Trust the direction, the gap between how you tell the bad ones and how you
 tell the good ones, and the change against your own history. Don't trust
 the number itself, and don't compare it to anyone.
 
-More skills can drop in beside this one, each with its own database,
-service, interface and instructions, and everything above stays true for
-each of them.
+More skills can drop in beside this one, each with its own user interface,
+database and backend service, along with its own instructions, and
+everything above stays true for each of them.
