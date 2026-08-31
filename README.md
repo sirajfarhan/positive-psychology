@@ -30,7 +30,7 @@ So you talk about real things in chat. The skill finds the reason you gave
 and stores that sentence word for word. Then it scores it, and starts
 teaching you to hear the difference before it ever gives you a term for it.
 
-## The app inside the skill
+## The app
 
 ![The Optimism Map](docs/optimism-map.png)
 
@@ -47,26 +47,25 @@ You say `/learn-optimism`, and it opens your file and starts the page if it
 isn't already running. If a question was left unanswered last time, it
 comes back before anything new starts.
 
-Every sentence of yours enters through chat, and nothing else can touch
-what you've said: the page reads, and it has no buttons because there's
-nothing it could write with them. It refreshes itself every few seconds,
-so what you're practising moves while you're still talking, and both sides
-read the same numbers out of the same file, so they can't tell you
-different things.
+Every sentence enters through chat, and nothing else can write: the page
+reads, and it has no buttons because there's nothing it could write with
+them. It refreshes every few seconds, so what you're practising moves
+while you're still talking, and both sides read the same numbers out of
+the same file, so they can't tell you different things.
 
 ## How the teaching works
 
 **It listens before it teaches.** Six things that went wrong and six that
 went right, the same count the questionnaire it's built on uses. Until it
-has those, it only listens, and the scores, the practice and the
-vocabulary all wait their turn.
+has those, the scores, the practice and the vocabulary all wait their
+turn.
 
 **Practice is built from your own sentences.** It reads everything you've
 told it and finds the pairs you already wrote, the same cause explaining a
-win and a setback, one week told two ways. Then it runs one question
-forward from your own details, the kind you answer on gut feel, and it
-never repeats itself, because it keeps every question it has asked and
-every sentence it has used.
+win and a setback. Then it runs one question forward from your own
+details, the kind you answer on gut feel, and it never repeats itself,
+because it keeps every question it has asked and every sentence it has
+used.
 
 **Terms come last.** First you notice the two sentences feel different.
 Then you say what the difference is in your own words. Then you retell
@@ -82,10 +81,9 @@ question to stand on. A multiple-choice answer carries none of them, so it
 never asks one.
 
 **Your answers become tomorrow's material.** When you retell an event
-during practice, that new sentence gets kept as practice. It joins the
-pool the questions come from, and it never counts toward your scores,
-because a sentence you were talked into isn't evidence of how you talk on
-your own.
+during practice, that new sentence joins the pool the questions come from.
+It never counts toward your scores, because a sentence you were talked
+into isn't evidence of how you talk on your own.
 
 **Your scores move when you do.** They only look at your latest six of
 each kind, so recent change shows up instead of getting buried under a
@@ -102,8 +100,7 @@ It refuses multiple-choice questions outright, and says why when it does.
 It won't take a score outside the scale, or record growth on something
 that went well, because there's nothing to grow from there. Only one
 question can be open at a time, and the code blocks a second one rather
-than trusting anyone to remember. A sentence you were talked into can't
-get into your scores.
+than trusting anyone to remember.
 
 ## Install
 
@@ -116,9 +113,9 @@ The repo is a plugin marketplace, so Claude Code can install it directly:
 
 Codex reads the same folder as a local plugin, and both tools share the one
 database, so whichever you talk to, you're carrying on the same
-conversation. You'll need `python3` and `node`; the app builds the rest of
-itself the first time it runs, and starts its backend service and user
-interface whenever you say `/learn-optimism`. It opens with one question.
+conversation. You'll need `python3` and `node`, and the app builds the
+rest of itself the first time it runs. Say `/learn-optimism` and it starts
+the backend service and the user interface, then opens with one question.
 
 ## The database
 
@@ -132,14 +129,13 @@ already keeps things like it, which is nobody's private corner.
 | Linux | `~/.local/share/positive-psychology/` |
 | Windows | `%LOCALAPPDATA%\positive-psychology\` |
 
-Installing, updating or removing the app never reaches it. If an older version
-kept your file somewhere else, it brings it along the first time it runs,
-and if you ever wonder where anything ended up, ask it and it'll tell you.
+Installing, updating or removing the app never reaches it. If an older
+version kept your file somewhere else, it brings it along the first time
+it runs. Ask it where anything ended up and it'll tell you.
 
-Pull a newer version and your history comes with it. The file updates
-itself the next time you run anything, keeps a dated copy of the old one,
-and says a single line about what it did. Nothing you've told it is lost,
-however old the version you're coming from.
+The file updates itself the next time you run anything, keeps a dated copy
+of the old one, and says a single line about what it did. Nothing you've
+told it is lost, however old the version you're coming from.
 
 ## Where it stops
 
@@ -156,6 +152,5 @@ Trust the direction, the gap between how you tell the bad ones and how you
 tell the good ones, and the change against your own history. Don't trust
 the number itself, and don't compare it to anyone.
 
-More skills can drop in beside this one, each with its own user interface,
-database and backend service, along with its own instructions, and
+More skills can drop in beside this one, each with its own four parts, and
 everything above stays true for each of them.
