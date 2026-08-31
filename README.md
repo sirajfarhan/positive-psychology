@@ -32,9 +32,7 @@ reason you give. Does it last? How far does it spread? Is it you, or the
 situation?
 
 So you tell it, in chat, what actually happened to you. It finds the reason
-you gave, stores that sentence word for word, and scores it. Then it starts
-teaching you to hear the difference yourself, before it ever hands you a
-term for it.
+you gave, stores that sentence word for word, and scores it.
 
 ## The app
 
@@ -59,48 +57,39 @@ keeps itself up to date every few seconds.
 
 ### It listens before it teaches you anything
 
-For your first twelve stories it teaches you nothing. It has to hear how you
-already talk before it can show you anything about it. Six things that went
+For your first twelve stories it teaches you nothing. Six things that went
 wrong, six that went right, and it reflects each one back to you as you go.
 
-### Nothing it asks you is made up
+### Every question comes from something you actually lived
 
 It reads back through everything you've told it, picks one thing to work on,
-and builds the question out of an event you actually lived. Your own
-sentences are the only material that tests whether you can hear yourself.
-
-### Every question asks what you'd do next
-
-Your explanation decides what you do tomorrow, so that's what the questions
-get at. One will ask what you'd actually do about the next deadline, and
-only your memory of the last one can answer that.
+and builds the question out of one of your own events. One will ask what
+you'd do about the next deadline, and only your memory of the last one can
+answer that.
 
 ### You answer in your own words
 
-Every question is open, so you write a sentence back. That sentence does two
-jobs. It shows whether you heard the difference, which is how it grades you,
-and a full one joins your file as material for a later question. The scores
-keep reading only the sentences you volunteered on your own, because those
-are the ones that show how you actually talk.
+Every question is open, so you write a sentence back. It shows whether you
+heard the difference, which is how it grades you, and a full one joins your
+file as material for a later question. Your scores read only the sentences
+you volunteered on your own.
 
 ### Sessions are short on purpose
 
-A session is two or three questions, each one waiting on your answer before
-the next arrives. Then it stops for the day, because practice spaced across
-days is what sticks.
+Two or three questions, each waiting on your answer, then it stops for the
+day.
 
 ### You learn to hear it before you learn to name it
 
-Four stages, and the vocabulary only turns up at the second one.
+Four stages, and the vocabulary only turns up at the second.
 
 **Hearing it.** Given two of your own sentences, you can tell which one
-leaves you something to do tomorrow. No terminology needed, and none given.
+leaves you something to do tomorrow.
 
 **Naming it.** Shown the word doing the work in a sentence you wrote, you
-can say what that word is doing. "Always" makes the cause permanent. The
-names for those three questions arrive here, once your ear is already there.
+can say what it's doing. "Always" makes the cause permanent.
 
-**Producing it.** You can tell the same event again with one of those three
+**Producing it.** You tell the same event again with one of the three
 changed and everything else identical.
 
 **Catching it.** You hear yourself do it in ordinary conversation, with
@@ -110,18 +99,23 @@ Get a question wrong past the first stage and you drop back one.
 
 ### Your scores follow your latest six
 
-Only your six most recent setbacks and six most recent wins count toward the
-score, so older sentences drop out and the number moves when you do. The
-part worth watching is the distance between the two sides: how you explain
-the bad ones against how you explain the good ones.
+Only your six most recent setbacks and six most recent wins count. The part
+worth watching is the distance between them: how you explain the bad ones
+against how you explain the good ones.
 
-### Fifteen ideas get taught, six of them get charted
+### Fifteen ideas get taught, six get charted
 
-The six are the three questions above, asked separately about your setbacks
-and about your wins, and those are the bars on the page. The nine that never
-appear there get taught the same way: whether you've stopped arguing with
-what happened, what you're quietly measuring yourself against, where the
-next move sits, and six more like them. You meet those in the questions.
+The six are the three questions above, asked about setbacks and about wins,
+and those are the bars on the page. The other nine never appear there:
+whether you've stopped arguing with what happened, what you're measuring
+yourself against, where the next move sits, and six more.
+
+## What the code enforces
+
+Questions stay open-ended, and any attempt at a multiple choice gets turned
+down with a reason. Scores stay inside the one-to-seven range the
+researchers use. And one question stays open at a time, so you always know
+which one you're answering.
 
 ## Install
 
@@ -148,8 +142,12 @@ like it.
 | Linux | `~/.local/share/positive-psychology/` |
 | Windows | `%LOCALAPPDATA%\positive-psychology\` |
 
-It survives every install, update and removal, and a file left by an older
-version gets brought forward on the first run.
+It survives every install, update and removal. If an older version kept your
+file elsewhere, it brings it along on the first run. Ask it where anything
+ended up and it'll tell you.
+
+The file updates itself on the next run and keeps a dated copy of the old
+one, however old the version you're coming from.
 
 ## Where it stops
 
@@ -165,3 +163,6 @@ there's no baseline from other people to compare you against. Trust the
 direction, the gap between how you tell the bad ones and how you tell the
 good ones, and the change against your own history. Don't trust the number
 itself, and don't compare it to anyone.
+
+More skills can drop in beside this one, each with its own four parts, and
+everything above stays true for each of them.
