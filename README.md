@@ -94,14 +94,6 @@ Only your six most recent setbacks and six most recent wins count. The part
 worth watching is the distance between them: how you explain the bad ones
 against how you explain the good ones.
 
-### Fifteen ideas get taught, six get charted
-
-The six are the three questions above, asked about setbacks and about wins,
-and those are the bars on the page. The other nine never appear there.
-Whether you've stopped arguing with what happened. What you're quietly
-measuring yourself against. Where the next move sits, which question you're
-asking yourself, how much you made it matter, and who else is in the story.
-
 ## Install
 
 The repo is a plugin marketplace, so Claude Code can install it directly:
