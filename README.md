@@ -55,41 +55,48 @@ the same file, so they can't tell you different things.
 
 ## How the teaching works
 
-**It listens before it teaches.** Six things that went wrong and six that
-went right, the same count the questionnaire it's built on uses. Until it
-has those, the scores, the practice and the vocabulary all wait their
-turn.
+### It listens before it teaches
 
-**Practice is built from your own sentences.** It reads everything you've
-told it and finds the pairs you already wrote, the same cause explaining a
-win and a setback. Then it runs one question forward from your own
-details, the kind you answer on gut feel, and it never repeats itself,
-because it keeps every question it has asked and every sentence it has
-used.
+Six things that went wrong and six that went right, the same count the
+questionnaire it's built on uses. Until it has those, the scores, the
+practice and the vocabulary all wait their turn.
 
-**Terms come last.** First you notice the two sentences feel different.
-Then you say what the difference is in your own words. Then you retell
-your own event the other way. The last step is catching yourself doing it
-in normal conversation, with nobody asking. Reading about any of this
-moves nothing, and a wrong answer costs a step once you've climbed high
-enough to have one to lose.
+### Practice is built from your own sentences
 
-**Every question is open.** Your answers come back as sentences, and a
-sentence carries three things at once: the evidence for how you heard it,
-tomorrow's practice material, and more of your own voice for the next
-question to stand on. A multiple-choice answer carries none of them, so it
-never asks one.
+It reads everything you've told it and finds the pairs you already wrote,
+the same cause explaining a win and a setback. Then it runs one question
+forward from your own details, the kind you answer on gut feel, and it
+never repeats itself, because it keeps every question it has asked and
+every sentence it has used.
 
-**Your answers become tomorrow's material.** When you retell an event
-during practice, that new sentence joins the pool the questions come from.
-It never counts toward your scores, because a sentence you were talked
-into isn't evidence of how you talk on your own.
+### Terms come last
 
-**Your scores move when you do.** They only look at your latest six of
-each kind, so recent change shows up instead of getting buried under a
-lifetime average. Once you've been at it long enough to have six more of
-each behind those, it starts showing which way you've moved, and until
-then it shows where you stand and leaves it there.
+First you notice the two sentences feel different. Then you say what the
+difference is in your own words. Then you retell your own event the other
+way. The last step is catching yourself doing it in normal conversation,
+with nobody asking. Reading about any of this moves nothing, and a wrong
+answer costs a step once you've climbed high enough to have one to lose.
+
+### Every question is open
+
+Your answers come back as sentences, and a sentence carries three things
+at once: the evidence for how you heard it, tomorrow's practice material,
+and more of your own voice for the next question to stand on. A
+multiple-choice answer carries none of them, so it never asks one.
+
+### Your answers become tomorrow's material
+
+When you retell an event during practice, that new sentence joins the pool
+the questions come from. It never counts toward your scores, because a
+sentence you were talked into isn't evidence of how you talk on your own.
+
+### Your scores move when you do
+
+They only look at your latest six of each kind, so recent change shows up
+instead of getting buried under a lifetime average. Once you've been at it
+long enough to have six more of each behind those, it starts showing which
+way you've moved, and until then it shows where you stand and leaves it
+there.
 
 ## What the code enforces
 
