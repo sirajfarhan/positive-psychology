@@ -5,34 +5,40 @@ route is a GET, and the skill is the only thing that writes.
 
 ```
 app/
+  run.sh     starts both halves, idempotent, owns where the deps go
   backend/   FastAPI over the skill's SQLite store  (port 8787)
   frontend/  Vite + React, one page                 (port 5173)
 ```
 
-The backend imports `scripts/optimism_db.py` rather than reimplementing
-anything, so scoring and orientation have exactly one definition.
+The backend imports the skill's `optimism_db.py` rather than reimplementing
+anything, so scoring and orientation have exactly one definition. That import
+goes one way only. The store belongs to the skill and this app just reads it,
+while the venv and `node_modules` belong to this app and the skill has no
+opinion about them.
+
+Those two live in your cache directory rather than in the plugin folder,
+because a plugin update replaces that folder wholesale and 122MB of frontend
+packages should not be fetched again each time it does. `run.sh` resolves the
+location, honours `XDG_CACHE_HOME`, and `run.sh status` prints it.
 
 ## Run
 
 ```bash
-cd app
-backend/.venv/bin/python backend/server.py &
-cd frontend && npm run dev
+./run.sh
 ```
+
+That is the whole thing. It starts whatever is missing, prints the URL, and
+on a first run it builds the venv and installs the frontend packages itself.
+Running it twice is safe. `run.sh status` says what is up and where the deps
+live, `run.sh stop` shuts both down, and `--no-open` skips the browser.
 
 Then open http://localhost:5173. Vite proxies `/api` to the backend.
 
-Point it at a different store with `OPTIMISM_DB`:
+Point it at a different store with `OPTIMISM_DB`, which the skill and the
+app both read:
 
 ```bash
-OPTIMISM_DB=/tmp/longview-demo.db backend/.venv/bin/python backend/server.py
-```
-
-First run only:
-
-```bash
-python3 -m venv backend/.venv && backend/.venv/bin/pip install fastapi uvicorn
-cd frontend && npm install
+OPTIMISM_DB=/tmp/demo.db ./run.sh
 ```
 
 ## Routes

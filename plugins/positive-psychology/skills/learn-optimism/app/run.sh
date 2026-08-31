@@ -22,10 +22,23 @@ mkdir -p "$LOG_DIR"
 # the installed folder wholesale, and 122MB of frontend dependencies should not
 # be downloaded again every time it does.
 #
-# optimism_db.py owns where things go on each platform. Asking it, rather than
-# working it out again here, means there is one answer and not two that drift.
-DEPS="$(python3 "$APP/../scripts/optimism_db.py" where \
-        | python3 -c 'import json,sys; print(json.load(sys.stdin)["deps"])')"
+# They are this app's own business, so this script resolves them rather than
+# asking the store module. The store lives in the platform's data directory
+# and belongs to the skill; these are build artifacts, they belong here, and
+# the two answer to nobody in common. Cache is the right home for them because
+# every byte can be rebuilt from package-lock.json and pip.
+# Windows gets no branch of its own here, deliberately. This script already
+# needs lsof, curl and nohup, so it runs under WSL or Git Bash rather than
+# cmd.exe, and WSL reports Linux and wants ~/.cache anyway. The store is the
+# one that has a real Windows home, and optimism_db.py handles that.
+if [ -n "${XDG_CACHE_HOME:-}" ]; then
+  CACHE="$XDG_CACHE_HOME"
+elif [ "$(uname -s)" = "Darwin" ]; then
+  CACHE="$HOME/Library/Caches"
+else
+  CACHE="$HOME/.cache"
+fi
+DEPS="$CACHE/positive-psychology/deps"
 VENV="$DEPS/backend-venv"
 mkdir -p "$DEPS"
 
@@ -55,6 +68,7 @@ case "${1:-start}" in
   status)
     up "$API_URL" && echo "backend  up   :${API_PORT}" || echo "backend  down"
     up "$WEB_URL" && echo "frontend up   :${WEB_PORT}" || echo "frontend down"
+    echo "deps     $DEPS"
     exit 0
     ;;
   stop)

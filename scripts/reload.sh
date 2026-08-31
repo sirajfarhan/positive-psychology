@@ -7,10 +7,13 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 APP="$ROOT/plugins/positive-psychology/skills/learn-optimism/app"
 
-# Artifacts are gitignored, but a local-path install copies the working tree as
-# it stands, not as git sees it. Left in place they are copied into the cache on
-# every install, which is exactly the duplication run.sh exists to avoid.
-rm -rf "$APP/frontend/node_modules" "$APP/backend/.venv"
+# A local-path install copies the working tree as it stands rather than as git
+# sees it, so anything left in frontend/ rides along into the plugin cache.
+# run.sh puts the real packages in your cache directory and leaves a symlink
+# here, and a copied symlink pointing into someone else's cache is worse than
+# no symlink at all. The venv needs no cleaning: it has lived outside the
+# plugin since the artifacts moved, and run.sh owns where.
+rm -rf "$APP/frontend/node_modules"
 
 # The dev server holds open handles inside node_modules, and the cache cannot
 # be replaced underneath it.

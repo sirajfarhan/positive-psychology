@@ -74,29 +74,6 @@ def data_home() -> Path:
     return Path.home() / ".local" / "share"
 
 
-def cache_home() -> Path:
-    """The platform's directory for regenerable files.
-
-    The venv and node_modules go here rather than beside the store, because
-    they are large and can always be rebuilt, while the store cannot.
-
-    On macOS it also drops "Application Support" from the venv path, and with
-    it one guaranteed space. That is a smaller win than it looks: a home
-    directory can contain a space too, so run.sh installs with `python -m pip`
-    rather than `bin/pip`, which is what actually makes the venv safe there.
-    """
-    xdg = os.environ.get("XDG_CACHE_HOME")
-    if xdg:
-        return Path(xdg).expanduser()
-    if sys.platform == "darwin":
-        return Path.home() / "Library" / "Caches"
-    if os.name == "nt":
-        local = os.environ.get("LOCALAPPDATA") or os.environ.get("APPDATA")
-        if local:
-            return Path(local) / "Cache"
-    return Path.home() / ".cache"
-
-
 def platform_db() -> Path:
     """Where the store goes when nobody has said otherwise."""
     return data_home() / APP_DIR / DB_NAME
@@ -925,7 +902,6 @@ def main() -> int:
             "db": str(args.db),
             "dir": str(args.db.parent),
             "data_home": str(data_home()),
-            "deps": str(cache_home() / APP_DIR / "deps"),
             "exists": args.db.exists(),
             "platform": sys.platform,
             "source": ("--db" if args.db != DEFAULT_DB
