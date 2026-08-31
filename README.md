@@ -7,13 +7,6 @@ It follows a new architecture where a skill is an app. This one has its own
 user interface, database and backend service, along with its instructions,
 and all of them together drive the model to train optimism.
 
-Each part carries its share. The database holds every sentence you've given
-it, so the skill knows you across months instead of one session. The
-backend service reads that database and works out where you stand. The user
-interface shows you that while you're still talking. The instructions are
-what the model reads before it speaks, so a sentence gets scored the same
-way today as it did last week.
-
 ---
 
 # learn-optimism
