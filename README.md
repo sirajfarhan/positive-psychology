@@ -92,13 +92,24 @@ spaced across days is what sticks.
 
 ### You learn to hear it before you learn to name it
 
-First you notice two of your own sentences pulling in different directions.
-Then you can say what one of those words is doing. Then you can tell an
-event again with a single thing moved and the rest untouched. Last, you
-catch yourself doing it mid-conversation with nobody asking. The vocabulary
-arrives at step two, once your ear is already there, because a word you can
-define and can't hear is worth nothing. Get a question wrong after that
-first step and you go back one.
+Four stages, and the vocabulary only turns up at the second one.
+
+**Hearing it.** Given two of your own sentences, you can tell which one
+leaves you something to do tomorrow. No terminology needed, and none
+given.
+
+**Naming it.** Shown the word doing the work in a sentence you wrote, you
+can say what that word is doing. "Always" makes the cause permanent. The
+names for those three questions arrive here, once your ear is already
+there.
+
+**Producing it.** You can tell the same event again with one of those
+three changed and everything else identical.
+
+**Catching it.** You hear yourself do it in ordinary conversation, with
+nobody asking.
+
+Get a question wrong past the first stage and you drop back one.
 
 ### Your scores follow your latest six
 
