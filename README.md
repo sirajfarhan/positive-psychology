@@ -12,8 +12,10 @@ instructions, and all of them together drive the model to train optimism.
 
 # learn-optimism
 
-It reads how optimistic you are from the way you explain real events, then
-teaches you to hear the difference yourself.
+You missed a deadline. Before you've finished noticing, you've already told
+yourself why.
+
+That sentence is the thing this measures.
 
 Someone who missed a deadline can explain it two ways.
 
@@ -23,16 +25,22 @@ Someone who missed a deadline can explain it two ways.
 
 The first has no end in it, so there's nothing to fix and nothing to do
 differently tomorrow. The second one already finished, which leaves you a
-next deadline to plan for. Most people lean one way without noticing, and
-that lean is what Martin Seligman's research ties to how well people keep
-going after things go wrong.
+next deadline to plan for.
 
-Psychologists call it explanatory style, and they ask three things about any
-reason you give. Does it last? How far does it spread? Is it you, or the
-situation?
+Same event, same person, two different tomorrows.
 
-So you tell it, in chat, what actually happened to you. It finds the reason
-you gave, stores that sentence word for word, and scores it.
+Most people lean one way without noticing, and that lean is what Martin
+Seligman's research ties to how well people keep going after things go
+wrong. Psychologists call it explanatory style, and they ask three things
+about any reason you give. Does it last? How far does it spread? Is it you,
+or the situation?
+
+So optimism here isn't a mood you talk yourself into. It's a habit of
+explanation, it runs in sentences you already say, and it can be measured in
+them.
+
+You tell it, in chat, what actually happened to you. It finds the reason you
+gave, stores that sentence word for word, and scores it.
 
 ## The app
 
@@ -69,10 +77,10 @@ answer that.
 
 ### You answer in your own words
 
-Every question is open, so you write a sentence back. It shows whether you
-heard the difference, which is how it grades you, and a full one joins your
-file as material for a later question. Your scores read only the sentences
-you volunteered on your own.
+You write a sentence back. That sentence shows whether you heard the
+difference, which is how it grades you, and a full one joins your file as
+material for a later question. Your scores read only what you volunteered
+before any coaching.
 
 ### Sessions are short on purpose
 
@@ -83,16 +91,16 @@ day.
 
 Four stages, and the vocabulary only turns up at the second.
 
-**Hearing it.** Given two of your own sentences, you can tell which one
+**Hearing it:** Given two of your own sentences, you can tell which one
 leaves you something to do tomorrow.
 
-**Naming it.** Shown the word doing the work in a sentence you wrote, you
+**Naming it:** Shown the word doing the work in a sentence you wrote, you
 can say what it's doing. "Always" makes the cause permanent.
 
-**Producing it.** You tell the same event again with one of the three
+**Producing it:** You tell the same event again with one of the three
 changed and everything else identical.
 
-**Catching it.** You hear yourself do it in ordinary conversation, with
+**Catching it:** You hear yourself do it in ordinary conversation, with
 nobody asking.
 
 ### Your scores follow your latest six
@@ -104,9 +112,10 @@ against how you explain the good ones.
 ### Fifteen ideas get taught, six get charted
 
 The six are the three questions above, asked about setbacks and about wins,
-and those are the bars on the page. The other nine never appear there:
-whether you've stopped arguing with what happened, what you're measuring
-yourself against, where the next move sits, and six more.
+and those are the bars on the page. The other nine never appear there.
+Whether you've stopped arguing with what happened. What you're quietly
+measuring yourself against. Where the next move sits, which question you're
+asking yourself, how much you made it matter, and who else is in the story.
 
 ## Install
 
@@ -142,9 +151,10 @@ one, however old the version you're coming from.
 
 ## Where it stops
 
-It isn't therapy, and it never scores how you feel. When something heavier
-than an explanation comes up, it stops, says so, and points you at real help
-instead of scoring it or arguing with it.
+It scores the explanation you gave for an event, and that's the whole of
+what it does. When something heavier than an explanation comes up, it stops,
+says so, and points you at real help instead of scoring it or arguing with
+it.
 
 ## How far to trust it
 
