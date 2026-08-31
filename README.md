@@ -1,9 +1,20 @@
 # positive-psychology
 
 Skills for Claude Code and Codex, built on what positive psychology can
-actually measure. A skill here isn't only instructions: it keeps a file of
-your own on your machine, runs a small page beside the chat, and Claude
-drives all of it from the conversation.
+actually measure.
+
+A skill here is an app. It has a database that remembers you, a service of
+its own running behind it, a page you can watch, and the instructions that
+tell the model how to teach. Those four run as one thing, and the
+conversation is what drives them: talking is the only way anything gets
+in, so what you say in chat becomes what the page shows and what
+tomorrow's practice is made of. The page is a window rather than a control
+panel, and it has no buttons because everything it could offer you would
+be something better said out loud.
+
+Most skills are a page of instructions, so they forget you when the
+session ends. A database lets one measure you across months, and a service
+and a page turn that measurement into something you can watch move.
 
 ---
 
@@ -32,13 +43,14 @@ teaching you to hear the difference before it ever gives you a term for it.
 
 ![The Optimism Map](docs/optimism-map.png)
 
-Three parts share one file.
+Four parts, one job.
 
-| Part | What it holds |
+| Part | What it does |
 |---|---|
-| **Your file** | Every sentence you've given it, what you've practised, and any question still waiting on you |
-| **A small local service** | Reads that file and hands the page your current scores, and the movement once there's history behind them |
-| **The page** | The picture above: your result in a sentence, a bar for each of the three questions, and what you're practising |
+| **The database** | Keeps every sentence you've given it, what you've practised, and any question still waiting on you |
+| **The service** | Reads that database and hands the page your current scores, and the movement once there's history behind them |
+| **The interface** | The picture above: your result in a sentence, a bar for each of the three questions, and what you're practising |
+| **The instructions** | What the model reads before it speaks: how to score a sentence, what to ask next, and how to say it so it sounds like a person |
 
 You say `/learn-optimism`, and it opens your file and starts the page if it
 isn't already running. If a question was left unanswered last time, it
@@ -111,16 +123,17 @@ The repo is a plugin marketplace, so Claude Code can install it directly:
 /plugin install positive-psychology@positive-psychology
 ```
 
-Codex can read the same folder as a local plugin, and both tools share the
-one file on disk, so whichever you talk to, you're carrying on the same
-conversation. You'll need `python3` and `node`; it sets the rest up itself
-the first time it runs. Then say `/learn-optimism` and it opens with one
-question.
+Codex reads the same folder as a local plugin, and both tools share the one
+database, so whichever you talk to, you're carrying on the same
+conversation. You'll need `python3` and `node`; the app builds the rest of
+itself the first time it runs, and starts its own service and page
+whenever you say `/learn-optimism`. It opens with one question.
 
-## Your file
+## The database
 
-It goes where your operating system already keeps things like it, which is
-nobody's private corner.
+An app that measures you over months has to outlive its own installs, so
+the database sits outside the plugin entirely, where your operating system
+already keeps things like it, which is nobody's private corner.
 
 | | |
 |---|---|
@@ -128,7 +141,7 @@ nobody's private corner.
 | Linux | `~/.local/share/positive-psychology/` |
 | Windows | `%LOCALAPPDATA%\positive-psychology\` |
 
-Installing or removing the plugin never reaches it. If an older version
+Installing, updating or removing the app never reaches it. If an older version
 kept your file somewhere else, it brings it along the first time it runs,
 and if you ever wonder where anything ended up, ask it and it'll tell you.
 
@@ -152,5 +165,6 @@ Trust the direction, the gap between how you tell the bad ones and how you
 tell the good ones, and the change against your own history. Don't trust
 the number itself, and don't compare it to anyone.
 
-More skills can drop in beside this one, and everything above stays true
-for each of them.
+More skills can drop in beside this one, each with its own database,
+service, interface and instructions, and everything above stays true for
+each of them.
