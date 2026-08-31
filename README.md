@@ -56,8 +56,8 @@ only collects those.
 
 ### Then it practises on your own sentences
 
-It finds the pairs you already wrote, the same cause explaining a win and
-a setback, and asks one question out of them. It never repeats itself.
+It builds every question out of your own sentences, reading across all of
+them rather than one event at a time. It never repeats itself.
 
 ### And every question it asks is open
 
