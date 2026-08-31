@@ -41,8 +41,9 @@ the difference before it ever gives you a term for it.
 | **The user interface** | The picture above: your result in a sentence, a bar for each of the three questions, and what you're practising |
 | **The instructions** | How to score a sentence, what to ask next, and how to say it so it sounds like a person |
 
-`/learn-optimism` starts the app, and running it twice is safe. An
-unanswered question comes back before anything new.
+You say `/learn-optimism` and the app starts up. If it's already running,
+saying it again doesn't change anything. And if a question was still
+waiting from last time, that one comes back before anything new.
 
 The app is read only, and for now you interact with it through chat. The
 page refreshes every few seconds from the same file the chat writes to, so
@@ -53,17 +54,17 @@ always show the same numbers.
 
 ### It listens before it teaches
 
-Six things that went wrong and six that went right, the count the
+Six things that went wrong and six that went right, the same count the
 questionnaire it's built on uses. Until it has those it only collects, and
-the scores, the practice and the vocabulary all wait.
+the scores, the practice and the vocabulary all wait their turn.
 
 ### Then it practises on your own sentences
 
-With twelve in hand it reads the lot and finds the pairs you already
-wrote, the same cause explaining a win and a setback. From those it runs
-one question forward out of your own details, the kind you answer on gut
-feel, and it never repeats itself, because it keeps every question it has
-asked and every sentence it has used.
+With twelve in hand it reads everything you've told it and finds the pairs
+you already wrote, the same cause explaining a win and a setback. Then it
+asks you one question built out of your own details, the kind you answer
+on gut feel. It never repeats itself, because it keeps every question it
+has asked and every sentence it has used.
 
 ### And every question it asks is open
 
@@ -82,9 +83,9 @@ sentence you were talked into isn't evidence of how you talk on your own.
 
 First you notice the two sentences feel different. Then you say the
 difference in your own words. Then you retell your own event the other
-way. Last is catching yourself doing it in normal conversation, with
-nobody asking. Reading about any of this moves nothing, and a wrong answer
-costs a step once you've climbed high enough to have one to lose.
+way. The last step is catching yourself doing it in normal conversation,
+with nobody asking. You move up a step by doing it, and a wrong answer
+costs you one once you've climbed high enough to have one to lose.
 
 ### Meanwhile your scores move when you do
 
