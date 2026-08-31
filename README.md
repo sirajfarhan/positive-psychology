@@ -41,9 +41,10 @@ the difference before it ever gives you a term for it.
 | **The user interface** | The picture above: your result in a sentence, a bar for each of the three questions, and what you're practising |
 | **The instructions** | How to score a sentence, what to ask next, and how to say it so it sounds like a person |
 
-You say `/learn-optimism` and the app starts up. If it's already running,
-saying it again doesn't change anything. And if a question was still
-waiting from last time, that one comes back before anything new.
+`/learn-optimism` starts the skill as an app, and it continues from where
+you left off, across any session. Nothing about where you are lives in the
+chat history, so if a question was still waiting, that one comes back
+before anything new.
 
 The app is read only, and for now you interact with it through chat. The
 page refreshes every few seconds from the same file the chat writes to, so
