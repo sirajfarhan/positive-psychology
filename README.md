@@ -49,40 +49,53 @@ page keeps itself up to date every few seconds.
 
 ## How the teaching works
 
-### It listens before it teaches
+### It listens first
 
-Six things that went wrong and six that went right. Until it has those,
-it only collects those.
+It gathers six things that went wrong and six that went right. Until it
+has those it mirrors your own sentences back to you. The teaching waits.
 
-### Then it practises on your own sentences
+### Then every question comes out of your own file
 
-Every question comes out of something you actually said. Rather than
-working one event at a time, it reads across all of them, and every
-question is new.
+It reads across everything you've told it. From that it picks one idea to
+work on, then builds the question out of your own details.
 
-### And every question it asks is open
+### The questions run forward
 
-Your answers come back as sentences, and each one shows how you heard the
-question. The next one stands on your own words.
+Say the money lands next week. What's the first thing that changes? You
+answer that from memory. Anything you could solve by reading the words
+alone gets rewritten before you see it.
 
-### So your answers become tomorrow's material
+### Your answers come back as sentences
 
-Retell an event during practice and that new sentence joins the pool the
-questions come from. It feeds tomorrow's questions and stays out of your
-scores.
+Every question is open. Each answer shows how you heard it. The rich ones
+join the pool the next questions come from, while the scores keep reading
+only the events you brought in yourself.
 
-### Over weeks the questions climb, and terms come last
+### Sessions are short on purpose
 
-First you notice the two sentences feel different. Then you say the
-difference in your own words. Then you retell your own event the other
-way. The last step is catching yourself doing it in normal conversation. A
-wrong answer costs you a step once you've climbed high enough to have one
-to lose.
+A session runs a few turns and stops. Practice spread across days is what
+holds, so it finishes early by design.
 
-### Meanwhile your scores move when you do
+### The climb takes weeks, and terms arrive late
+
+The end of it is catching yourself doing this mid-conversation, on your
+own. You get there by hearing two of your own explanations differ, then
+naming what does the work in something you said, then retelling one of
+your own events the other way. Terms turn up at that middle step, once you
+can already hear the thing. Past the first step, a wrong answer costs you
+one.
+
+### Your scores follow your latest six
 
 They only look at your latest six of each kind. Once six more sit behind
-those, it starts showing which way you've moved.
+those, it starts showing which way you've moved. The interesting
+part is usually the gap between them: setbacks told one way, wins told the
+other.
+
+### Six of the fifteen ideas reach the map
+
+Those six are the scored dimensions behind the bars. The other nine get
+taught and tracked the same way, living in the practice.
 
 ## What the code enforces
 
