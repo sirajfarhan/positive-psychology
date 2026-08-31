@@ -78,9 +78,11 @@ deadline, and only your memory of the last one can answer that.
 
 ### You answer in your own words
 
-There's no A or B to pick. A sentence back gives it two things at once:
-how you heard the question, and fresh material for the next one. Your
-scores stay built from the events you brought in yourself.
+Every question is open, so you write a sentence back. That sentence does
+two jobs. It shows whether you heard the difference, which is how it
+grades you, and a full one joins your file as material for a later
+question. The scores keep reading only the sentences you volunteered on
+your own, because those are the ones that show how you actually talk.
 
 ### Sessions are short on purpose
 
