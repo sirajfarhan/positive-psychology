@@ -52,9 +52,9 @@ you're still talking.
 
 ### It listens before it teaches
 
-Six things that went wrong and six that went right, the same count the
-questionnaire it's built on uses. Until it has those it only collects, and
-the scores, the practice and the vocabulary all wait their turn.
+Six things that went wrong and six that went right. Until it has those it
+only collects, and the scores, the practice and the vocabulary all wait
+their turn.
 
 ### Then it practises on your own sentences
 
@@ -94,13 +94,10 @@ where you stand.
 
 ## What the code enforces
 
-Written rules kept getting ignored, so the ones that matter live in the
-code.
-
 It refuses multiple-choice questions and says why. It won't take a score
 outside the scale, or record growth on a win, because there's nothing to
 grow from there. Only one question stays open at a time, and the code
-blocks a second rather than trusting anyone to remember.
+blocks a second.
 
 ## Install
 
@@ -111,11 +108,10 @@ The repo is a plugin marketplace, so Claude Code can install it directly:
 /plugin install positive-psychology@positive-psychology
 ```
 
-Codex reads the same folder as a local plugin, and both tools share the one
-database, so whichever you talk to, you're carrying on the same
-conversation. You'll need `python3` and `node`, and the app builds the
-rest of itself the first time it runs. Say `/learn-optimism` and it opens
-with one question.
+Codex reads the same folder, and both tools share the one database, so
+whichever you talk to, you're carrying on the same conversation. You'll need
+`python3` and `node`, and the app builds the rest of itself the first time
+it runs. Say `/learn-optimism` and it opens with one question.
 
 ## The database
 
