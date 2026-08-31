@@ -61,9 +61,10 @@ work on, then builds the question out of your own details.
 
 ### The questions run forward
 
-Say the money lands next week. What's the first thing that changes? You
-answer that from memory. Anything you could solve by reading the words
-alone gets rewritten before you see it.
+Each question asks what an explanation does next. Take that missed
+deadline: it asks what happens when the next one lands, and you answer
+from memory. A question answerable from the words alone gets rewritten
+before you see it.
 
 ### Your answers come back as sentences
 
