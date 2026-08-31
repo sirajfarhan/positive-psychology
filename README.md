@@ -40,7 +40,8 @@ explanation, it runs in sentences you already say, and it can be measured in
 them.
 
 You tell it, in chat, what actually happened to you. It finds the reason you
-gave, stores that sentence word for word, and scores it.
+gave, stores that sentence word for word, and scores it. The terminology
+comes later, once you can already hear the difference.
 
 ## The app
 
@@ -86,22 +87,6 @@ before any coaching.
 
 Two or three questions, each waiting on your answer, then it stops for the
 day.
-
-### You learn to hear it before you learn to name it
-
-Four stages, and the vocabulary only turns up at the second.
-
-**Hearing it:** Given two of your own sentences, you can tell which one
-leaves you something to do tomorrow.
-
-**Naming it:** Shown the word doing the work in a sentence you wrote, you
-can say what it's doing. "Always" makes the cause permanent.
-
-**Producing it:** You tell the same event again with one of the three
-changed and everything else identical.
-
-**Catching it:** You hear yourself do it in ordinary conversation, with
-nobody asking.
 
 ### Your scores follow your latest six
 
