@@ -42,14 +42,11 @@ the difference before it ever gives you a term for it.
 | **The instructions** | How to score a sentence, what to ask next, and how to say it so it sounds like a person |
 
 `/learn-optimism` starts the skill as an app, and it continues from where
-you left off, across any session. Nothing about where you are lives in the
-chat history, so if a question was still waiting, that one comes back
-before anything new.
+you left off, across any session.
 
 The app is read only, and for now you interact with it through chat. The
-page refreshes every few seconds from the same file the chat writes to, so
-what you're practising moves while you're still talking. Chat and page
-always show the same numbers.
+page refreshes every few seconds, so what you're practising moves while
+you're still talking.
 
 ## How the teaching works
 
@@ -136,9 +133,8 @@ Installing, updating or removing the app never reaches it. If an older
 version kept your file elsewhere, it brings it along on the first run. Ask
 it where anything ended up and it'll tell you.
 
-The file updates itself on the next run, keeps a dated copy of the old
-one, and says one line about what it did. Nothing is lost, however old the
-version you're coming from.
+The file updates itself on the next run and keeps a dated copy of the old
+one. Nothing is lost, however old the version you're coming from.
 
 ## Where it stops
 
