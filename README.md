@@ -26,9 +26,9 @@ other without noticing, and that habit can be measured. Psychologists call
 it explanatory style, and they ask three things about a cause. Does it last?
 How far does it reach? Is it you, or the situation?
 
-So you talk about real things in chat. The skill finds the reason you
-gave, stores it word for word, scores it, and starts teaching you to hear
-the difference before it ever gives you a term for it.
+So you tell it, in chat, what actually happened to you. The skill finds the
+reason you gave, stores it word for word, scores it, and starts teaching you
+to hear the difference before it ever gives you a term for it.
 
 ## The app
 
@@ -45,29 +45,31 @@ the difference before it ever gives you a term for it.
 you left off, across any session.
 
 The app is read only, and for now you interact with it through chat. The
-page refreshes every few seconds.
+page keeps itself up to date every few seconds.
 
 ## How the teaching works
 
 ### It listens before it teaches
 
-Six things that went wrong and six that went right. Until it has those it
-only collects those.
+Six things that went wrong and six that went right. Until it has those,
+it only collects those.
 
 ### Then it practises on your own sentences
 
-It builds every question out of your own sentences, reading across all of
-them rather than one event at a time. It never repeats itself.
+Every question comes out of something you actually said. Rather than
+working one event at a time, it reads across all of them, and every
+question is new.
 
 ### And every question it asks is open
 
-Your answers come back as sentences, which carry the evidence for how you
-heard it and more of your own voice for the next question to stand on.
+Your answers come back as sentences, and each one shows how you heard the
+question. The next one stands on your own words.
 
 ### So your answers become tomorrow's material
 
-When you retell an event during practice, that sentence joins the pool the
-questions come from, and it never counts toward your scores.
+Retell an event during practice and that new sentence joins the pool the
+questions come from. It feeds tomorrow's questions and stays out of your
+scores.
 
 ### Over weeks the questions climb, and terms come last
 
@@ -79,14 +81,15 @@ to lose.
 
 ### Meanwhile your scores move when you do
 
-They only look at your latest six of each kind. Once six more of each sit
-behind those, it shows which way you've moved.
+They only look at your latest six of each kind. Once six more sit behind
+those, it starts showing which way you've moved.
 
 ## What the code enforces
 
-It refuses multiple-choice questions and says why. It won't take a score
-outside the scale, or record growth on a win, because there's nothing to
-grow from there. Only one question stays open at a time.
+It keeps every question open, and says why when something tries to close
+one. Scores stay inside the scale, and growth gets recorded only on a
+setback, because there's nothing to grow from in a win. And one question
+stays open at a time, so you always know which one you're answering.
 
 ## Install
 
@@ -114,12 +117,12 @@ things like it.
 | Linux | `~/.local/share/positive-psychology/` |
 | Windows | `%LOCALAPPDATA%\positive-psychology\` |
 
-Installing, updating or removing the app never reaches it. If an older
+It survives every install, update and removal. If an older
 version kept your file elsewhere, it brings it along on the first run. Ask
 it where anything ended up and it'll tell you.
 
 The file updates itself on the next run and keeps a dated copy of the old
-one. Nothing is lost, however old the version you're coming from.
+one. Everything survives, however old the version you're coming from.
 
 ## Where it stops
 
@@ -127,7 +130,7 @@ It isn't therapy, and it never scores how you feel. When something heavier
 than an explanation comes up, it stops, says so, and points you at real
 help instead of scoring it or arguing with it.
 
-## What it can't do
+## How far to trust it
 
 One automated rater does the scoring, working from example sentences
 written for this skill. Nobody has checked whether a second rater would
