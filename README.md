@@ -14,7 +14,7 @@ and all of them together drive the model to train optimism.
 It reads how optimistic you are from the way you explain real events. Then
 it teaches you to hear the difference yourself.
 
-Here are two ways of explaining the same missed deadline.
+Someone who missed a deadline can explain it two ways.
 
 > *I always leave things too late.*
 >
@@ -33,8 +33,6 @@ teaching you to hear the difference before it ever gives you a term for it.
 ## The app
 
 ![The Optimism Map](docs/optimism-map.png)
-
-Four parts, one job.
 
 | Part | What it does |
 |---|---|
