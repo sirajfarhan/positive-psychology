@@ -1,4 +1,4 @@
-# positive-psychology
+# skill-as-an-app
 
 Skills for Claude Code and Codex, built on what positive psychology can
 actually measure.
@@ -99,7 +99,7 @@ against how you explain the good ones.
 The repo is a plugin marketplace, so Claude Code can install it directly:
 
 ```
-/plugin marketplace add sirajfarhan/positive-psychology
+/plugin marketplace add sirajfarhan/skill-as-an-app
 /plugin install positive-psychology@positive-psychology
 ```
 

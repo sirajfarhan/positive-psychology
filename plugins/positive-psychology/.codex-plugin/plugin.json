@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Reads how you explain real events, scores it the way the research does, and trains the ear by drilling your own sentences.",
   "author": { "name": "Siraj" },
-  "homepage": "https://github.com/sirajfarhan/positive-psychology",
+  "homepage": "https://github.com/sirajfarhan/skill-as-an-app",
   "license": "MIT",
   "keywords": ["optimism", "explanatory-style", "seligman", "learning", "cbt"],
   "skills": "./skills/",
