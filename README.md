@@ -1,47 +1,59 @@
 # skill-as-an-app
 
-Skills for Claude Code and Codex, built on what positive psychology can
-actually measure.
+Systems like Claude and ChatGPT already have a very minimal version of a
+database. One part is categorised as memory, and the rest is generally known
+as context. Personalisation is an emergent phenomenon of that memory and
+context.
 
-A skill is a folder of instructions you drop into Claude, and usually that
-is all it is. It follows a new architecture where a skill is an app. This
-one has its own user interface, database and backend service, along with its
-instructions, and all of them together drive the model to train optimism.
+Memory, context and personalisation are still very general terms. As we get
+more and more specific, more capabilities emerge out of these systems, and
+they start solving a range of problems we face across individual lives and
+businesses.
+
+A skill is usually a folder of instructions you drop into Claude. This repo
+follows a different architecture, where a skill is an app. It has its own
+user interface, database and backend service, along with its instructions,
+and all of them together drive the model.
+
+You can technically get all of this working with scripts, JSON files and
+Markdown. It's just that those components aren't made for the capabilities
+we want out of the system. Using an actual database solves most of the
+problems we already solved in the pre-AI era, and it makes room for emergent
+capabilities that create a personalised learning experience.
 
 ---
 
 # learn-optimism
 
-You missed a deadline. Before you've finished noticing, you've already told
-yourself why.
+The skill in this repo, published as an MVP.
 
-That sentence is the thing this measures.
+Since AI can't look into our brains directly, the best way to understand
+someone's current state of optimism is through how they explain their past
+events. In positive psychology it's known as explanatory style.
 
-Someone who missed a deadline can explain it two ways.
+It starts by onboarding you with questions about six wins and six setbacks
+from the past, and drills into how you explain them.
 
-> *I always leave things too late.*
->
-> *I left that one too late.*
+Then it scores each explanation across three core dimensions:
 
-The first has no end in it, so there's nothing to fix and nothing to do
-differently tomorrow. The second one already finished, which leaves you a
-next deadline to plan for.
+1. **Personalisation:** whether you attribute it to yourself or to outside
+   forces
+2. **Permanence:** whether you consider it temporary or permanent
+3. **Pervasiveness:** whether you consider it to apply to all aspects of
+   your life or just one specific situation
 
-Same event, same person, two different tomorrows.
+Someone who's optimistic often attributes good events to themselves, thinks
+they're permanent and knows they apply to all parts of their life, while
+doing the opposite for bad events. For someone who's pessimistic, it's the
+other way around.
 
-Most people lean one way without noticing, and that lean is what Martin
-Seligman's research ties to how well people keep going after things go
-wrong. Psychologists call it explanatory style, and they ask three things
-about any reason you give. Does it last? How far does it spread? Is it you,
-or the situation?
+Once that's done, the teaching phase begins. It uses principles taught by
+life coaches like Peter Sage to help you see the same explanations
+differently, nudging you closer to optimism.
 
-So optimism here isn't a mood you talk yourself into. It's a habit of
-explanation, it runs in sentences you already say, and it can be measured in
-them.
-
-You tell it, in chat, what actually happened to you. It finds the reason you
-gave, stores that sentence word for word, and scores it. The terminology
-comes later, once you can already hear the difference.
+To see that you're actually progressing, there's a minimal user interface:
+an optimism map where you can see your current state, which keeps updating
+as you go.
 
 ## The app
 
@@ -64,17 +76,10 @@ keeps itself up to date every few seconds.
 
 ## How the teaching works
 
-### It listens before it teaches you anything
-
-For your first twelve stories it teaches you nothing. Six things that went
-wrong, six that went right, and it reflects each one back to you as you go.
-
 ### Every question comes from something you actually lived
 
 It reads back through everything you've told it, picks one thing to work on,
-and builds the question out of one of your own events. One will ask what
-you'd do about the next deadline, and only your memory of the last one can
-answer that.
+and builds the question out of one of your own events.
 
 ### You answer in your own words
 

@@ -895,9 +895,10 @@ def main() -> int:
     args = p.parse_args()
 
     if args.cmd == "where":
-        # Answered before opening anything, so asking where the store is never
-        # brings one into existence. run.sh reads this instead of reimplementing
-        # the resolution, so there is one answer and not two that can drift.
+        # Answered before opening anything, so asking where the store is
+        # never brings one into existence. This covers the store only; the
+        # cache path for the venv and node_modules belongs to run.sh, which
+        # needs it in shell before Python is available to ask.
         print(json.dumps({
             "db": str(args.db),
             "dir": str(args.db.parent),
