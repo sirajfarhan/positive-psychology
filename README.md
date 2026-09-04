@@ -1,59 +1,57 @@
 # skill-as-an-app
 
-Systems like Claude and ChatGPT already have a very minimal version of a
-database. One part is categorised as memory, and the rest is generally known
-as context. Personalisation is an emergent phenomenon of that memory and
-context.
+A skill for Claude Code and Codex, built on what positive psychology can
+actually measure.
 
-Memory, context and personalisation are still very general terms. As we get
-more and more specific, more capabilities emerge out of these systems, and
-they start solving a range of problems we face across individual lives and
-businesses.
-
-A skill is usually a folder of instructions you drop into Claude. This repo
-follows a different architecture, where a skill is an app. It has its own
-user interface, database and backend service, along with its instructions,
-and all of them together drive the model.
-
-You can technically get all of this working with scripts, JSON files and
-Markdown. It's just that those components aren't made for the capabilities
-we want out of the system. Using an actual database solves most of the
-problems we already solved in the pre-AI era, and it makes room for emergent
-capabilities that create a personalised learning experience.
+A skill is a folder of instructions you drop into Claude, and usually that
+is all it is. This one follows a new architecture where a skill is an app.
+It has its own user interface, database and backend service, along with its
+instructions, and all of them together drive the model to train optimism.
 
 ---
 
 # learn-optimism
 
-The skill in this repo, published as an MVP.
+Someone who missed a deadline can explain it two ways.
 
-Since AI can't look into our brains directly, the best way to understand
-someone's current state of optimism is through how they explain their past
-events. In positive psychology it's known as explanatory style.
+> *I always leave things too late.*
+>
+> *I left that one too late.*
 
-It starts by onboarding you with questions about six wins and six setbacks
-from the past, and drills into how you explain them.
+The first has no end in it, so there's nothing to do differently tomorrow.
+The second already finished, which leaves you a next deadline to plan for.
+Same event, two different tomorrows.
 
-Then it scores each explanation across three core dimensions:
+That habit of explanation is what positive psychology calls explanatory
+style. Since nothing can look into your head directly, the way you explain
+what already happened to you is the closest available reading of how
+optimistic you are, and Martin Seligman's research ties it to how well
+people keep going after things go wrong.
 
-1. **Personalisation:** whether you attribute it to yourself or to outside
-   forces
-2. **Permanence:** whether you consider it temporary or permanent
-3. **Pervasiveness:** whether you consider it to apply to all aspects of
-   your life or just one specific situation
+The skill starts by asking you about six wins and six setbacks from your
+past, and drills into how you explain each one. Then it scores every
+explanation on three dimensions:
 
-Someone who's optimistic often attributes good events to themselves, thinks
-they're permanent and knows they apply to all parts of their life, while
-doing the opposite for bad events. For someone who's pessimistic, it's the
-other way around.
+1. **Permanence:** whether the cause is over, or still running
+2. **Pervasiveness:** whether it touches one corner of your life, or all of
+   it
+3. **Personalisation:** whether it was you, or the situation
 
-Once that's done, the teaching phase begins. It uses principles taught by
-life coaches like Peter Sage to help you see the same explanations
-differently, nudging you closer to optimism.
+An optimist explains good events as their own doing, lasting, and spread
+across their life, and explains bad events the opposite way: the situation,
+temporary, and contained to one place. A pessimist has it the other way
+around.
 
-To see that you're actually progressing, there's a minimal user interface:
-an optimism map where you can see your current state, which keeps updating
-as you go.
+Once it has your twelve, the teaching begins. Every question is built out of
+one of your own events, and you answer in a sentence, in your own words. It
+uses Seligman's method alongside principles from Peter Sage to help you see
+the same explanations differently, nudging you closer to optimism. Sessions
+are two or three questions, then it stops for the day.
+
+To see whether you're actually moving, there's a minimal user interface: an
+optimism map showing where you stand, which keeps updating as you go. Only
+your six most recent setbacks and six most recent wins count, so the map
+reads where you are now rather than your history.
 
 ## The app
 
@@ -69,35 +67,8 @@ as you go.
 `/learn-optimism` starts the skill as an app, and it continues from where
 you left off, across any session.
 
-A pattern across twelve sentences is hard to see from inside the
-conversation that produced them, which is what the page is for. It's read
-only, and for now you interact with the app through chat, while the page
-keeps itself up to date every few seconds.
-
-## How the teaching works
-
-### Every question comes from something you actually lived
-
-It reads back through everything you've told it, picks one thing to work on,
-and builds the question out of one of your own events.
-
-### You answer in your own words
-
-You write a sentence back. That sentence shows whether you heard the
-difference, which is how it grades you, and a full one joins your file as
-material for a later question. Your scores read only what you volunteered
-before any coaching.
-
-### Sessions are short on purpose
-
-Two or three questions, each waiting on your answer, then it stops for the
-day.
-
-### Your scores follow your latest six
-
-Only your six most recent setbacks and six most recent wins count. The part
-worth watching is the distance between them: how you explain the bad ones
-against how you explain the good ones.
+The app is read only, and for now you interact with it through chat.
+The page keeps itself up to date every few seconds.
 
 ## Install
 
@@ -130,22 +101,3 @@ ended up and it'll tell you.
 
 The file updates itself on the next run and keeps a dated copy of the old
 one, however old the version you're coming from.
-
-## Where it stops
-
-It scores the explanation you gave for an event, and that's the whole of
-what it does. When something heavier than an explanation comes up, it stops,
-says so, and points you at real help instead of scoring it or arguing with
-it.
-
-## How far to trust it
-
-The model does the scoring itself, working from example sentences written
-for this skill. Nobody has checked whether a second rater would agree, and
-there's no baseline from other people to compare you against. Trust the
-direction, the gap between how you tell the bad ones and how you tell the
-good ones, and the change against your own history. Don't trust the number
-itself, and don't compare it to anyone.
-
-More skills can drop in beside this one, each with its own four parts, and
-everything above stays true for each of them.
